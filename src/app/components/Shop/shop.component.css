@@ -1,0 +1,72 @@
+.title-emphasis {
+    color: white;
+}
+.item-title{
+    color: black;
+}
+.card-item:hover {
+    border: 1px solid #116466;
+    background: #116466;
+}
+.card-item:hover .card-text{
+    color: white;
+}
+.transparent-input input{
+    background: transparent;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+}
+.transparent-input span {
+    background: transparent;
+    border-right: none;
+    border-top: none;
+    border-left: none;
+}
+.nav-btn{
+    display: flex;
+    align-items: center;
+}
+.nav-btn-right{
+    justify-content: flex-end;
+}
+.nav-btn button{
+    background: transparent;
+    font-weight: bold;
+    color: white;
+    border: none;
+    font-size: 1.5rem;
+}
+.nav-btn button:hover{
+    color: #22c7cb;
+}
+#profile{
+    margin-top: 5vh;
+}
+.btn-return-to-worlds{
+    float: right;
+    background:  #1ca4a8;
+}
+.btn-return-to-worlds:hover{
+    background: #116466;
+}
+#showAllItems .title{
+    color: white;
+}
+#showAllItems .pageString{
+    color: white;
+}
+.breadcrumbs_container{
+    display: flex;
+    align-items: center;
+}
+.cust_breadcrumb{
+    color: white;
+}
+.cust_breadcrumb:hover{
+    color:  #1ca4a8;
+}
+
+
+  
+  
