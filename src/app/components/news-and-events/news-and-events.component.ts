@@ -33,16 +33,10 @@ export class NewsAndEventsComponent implements OnInit, AfterViewInit {
   constructor(private docApi: DocumentService) {
     this.view = 'news';
     this.newsNumDocsReturned = 0;
-   //  const docs = this.docApi.getLocalDocs();
-   const curryFilterDocs = curry(this.filterLocalDocs);
-   //curryFilterDocs('news')(this.docApi.getLocalDocs())
-   // console.log(curryFilterDocs); 
-  
     this.documents = compose(
       curry(this.filterLocalDocs)('news'),
       this.docApi.getLocalDocs
     )();
-    console.log('News Docs', this.documents);
     /*
     this.documents = [];
     this.dateUBoundNews = parseInt(format(new Date(), 'YYYYMMDD'), 10);
@@ -58,7 +52,6 @@ export class NewsAndEventsComponent implements OnInit, AfterViewInit {
 
   }
   filterLocalDocs(type: string, documents: Document[]): Document[] {
-    console.log('Filter local Docs', type, documents);
     return documents.filter((document) => document.type === type);
   }
   getFormattedDocs(existing: any[], incoming: any[]): any[] {
@@ -95,7 +88,6 @@ export class NewsAndEventsComponent implements OnInit, AfterViewInit {
     const newsDocs = await this.docApi.selectFromNewsDB(dateUBound);
     const incoming = newsDocs.records;
     const existing = this.documents;
-    console.log('News Docs', newsDocs);
      const getUniqueFormattedDocs = compose(
       this.removeArrDuplicates,
       this.getFormattedDocs
@@ -107,7 +99,6 @@ export class NewsAndEventsComponent implements OnInit, AfterViewInit {
     const eventsDocs = await this.docApi.selectFromEventsDB(dateUBound);
     const incoming = eventsDocs.records;
     const existing = this.documents;
-    console.log('Events Docs', eventsDocs);
     const getUniqueFormattedDocs = compose(
       this.removeArrDuplicates,
       this.getFormattedDocs
@@ -140,7 +131,6 @@ export class NewsAndEventsComponent implements OnInit, AfterViewInit {
       + prevView refers to only an 'event' or 'news' page and is thus only set on those types
         It iwas used when closing 'readMore' document
     */
-   console.log('Toggling View', type);
    this.prevView = this.view;
    switch (type) {
      case 'news':
@@ -162,13 +152,9 @@ export class NewsAndEventsComponent implements OnInit, AfterViewInit {
       const document: Document = args[1];
       this.prevCardId = elemId;
       this.activeDocument = document;
-      console.log('Elem Id', elemId);
       break;
    }
     this.view = type;
-    console.log('New View: ' + this.view);
-    console.log('Prev View: ' + this.prevView);
-    console.log('Args', args); 
   }
   toggleViewDB(type, ...args): void {
     /*
@@ -178,7 +164,6 @@ export class NewsAndEventsComponent implements OnInit, AfterViewInit {
       + prevView refers to only an 'event' or 'news' page and is thus only set on those types
         It iwas used when closing 'readMore' document
     */
-   console.log('Toggling View', type);
    switch (type) {
      case 'news':
       this.documents = [];
@@ -195,12 +180,9 @@ export class NewsAndEventsComponent implements OnInit, AfterViewInit {
       const document: Document = args[1];
       this.prevCardId = elemId;
       this.activeDocument = document;
-      console.log('Elem Id', elemId);
       break;
    }
     this.view = type;
-    console.log('New View: ' + this.view);
-    console.log('Prev View: ' + this.prevView);
   }
   closeDocument(): void {
     /*
@@ -213,12 +195,7 @@ export class NewsAndEventsComponent implements OnInit, AfterViewInit {
     const scrollContainer = document.getElementsByClassName('scroll-container')[0];
     scrollContainer.scrollTop = this.prevScrollPosition;
     setTimeout(() => {
-      console.log('Elem Id:' + this.prevCardId);
       const prevCard =  document.getElementById(this.prevCardId);
-
-      console.log('Scroll Container', scrollContainer);
-      // console.log('Prev Card', prevCard);
-      // prevCard.scrollIntoView();
     }, 50);
   }
 }
