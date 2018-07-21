@@ -62,8 +62,8 @@ export class ContactComponent {
       productType: ['', Validators.required ],
       subject: ['', Validators.required ],
       message: ['', Validators.required ]
-    });  */
-  };   
+    });  
+  };   */
   createContactForm(): void {
     this.contactForm = this.fb.group({
       address: ['933 SW 3rd Ave, Portland, OR', Validators.required ],
