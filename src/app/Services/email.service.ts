@@ -9,6 +9,29 @@ export class EmailService {
   sendEmail(data) {
     console.log('Data', data);
     $.ajax({
+      type: 'POST',
+      url: 'https://mandrillapp.com/api/1.0/messages/send.json',
+      data: {
+        'key': this.apiKey,
+        'message': {
+          'from_email': data.email,
+          'to': [
+              {
+                'email': 'richard.morales.thompson@gmail.com',
+                'name': 'Uncharted Realities Admin',
+                'type': 'to'
+              }
+            ],
+          'autotext': 'true',
+          'subject': data.subject,
+          'html': 'Test message'
+        }
+      }
+    }).done(function(response) {
+      console.log(response); // if you're into that sorta thing
+    });
+    /*
+    $.ajax({
         type: 'POST',
         url: 'https://mandrillapp.com/api/1.0/messages/send.json',
         data: {
@@ -38,5 +61,7 @@ export class EmailService {
           We apologize for the inconvenience`);
         }
       });
+  */
+
   }
 }
