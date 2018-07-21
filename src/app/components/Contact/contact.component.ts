@@ -68,8 +68,8 @@ export class ContactComponent {
     this.contactForm = this.fb.group({
       address: ['933 SW 3rd Ave, Portland, OR', Validators.required ],
       phone: ['(844)633-0075', Validators.required ],
-      email: ['​info@unchartedrealities.com', Validators.required ],
-    }),
+      email: ['​info@unchartedrealities.com', Validators.required ]
+    });
   }
   /*get email() { return this.activeForm.get('email'); }
   sendEmail(): void {
