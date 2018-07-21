@@ -98,6 +98,6 @@ export class ContactComponent {
         break;
     }
     console.log('Contact Obj', emailObj);
-    this.emailService.sendEmail(emailObj);  */
-  }
+    this.emailService.sendEmail(emailObj);  
+  }  */
 }
