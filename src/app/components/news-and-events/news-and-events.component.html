@@ -7,7 +7,7 @@
                     <li class="nav-item">
                         <a 
                         class="nav-link"
-                        [ngClass]="view === 'news'? 'underline':''" 
+                        [ngClass]="view === 'news' || (view==='readMore' && prevView === 'news')? 'underline':''" 
                         id="showVisitorForm" 
                         role="button" 
                         (click)="toggleView('news')"
@@ -18,7 +18,7 @@
                     <li class="nav-item">
                         <a 
                         class="nav-link"
-                        [ngClass]="view === 'events'? 'underline':'nav-link'" 
+                        [ngClass]="view === 'events' || (view==='readMore' && prevView === 'events')? 'underline':'nav-link'" 
                         id="showVendorForm" 
                         class="nav-link" 
                         role="button" 

@@ -49,10 +49,6 @@ export class WorldsComponent {
     for (i = startIndex; i < startIndex + 6 && i < this.worlds.length; i++) {
       this.activeWorlds.push(this.worlds[i]);
     }
-    /* Test */
-    console.log(`Start Index: ${startIndex}`);
-    console.log(`Active Worlds`, this.activeWorlds);
-    console.log(`Stop Index: ${i}`);
   }
   showProfile(world): void {
     /*

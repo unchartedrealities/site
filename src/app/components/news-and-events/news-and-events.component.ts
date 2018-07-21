@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { News, Events } from '../../Interfaces/interfaces';
 import {DocumentService} from '../../Services/document.service';
 import {Document} from '../../DummyData/news&events';
@@ -6,13 +6,13 @@ import {format, startOfDay} from 'date-fns';
 import * as compose from 'lodash/fp/compose';
 import * as curry from 'lodash/fp/curry';
 import * as $ from 'jquery';
+import { ComponentFixture } from '@angular/core/testing';
 @Component({
   selector: 'app-news-and-events',
   templateUrl: './news-and-events.component.html',
   styleUrls: ['./news-and-events.component.scss']
 })
-export class NewsAndEventsComponent implements OnInit, AfterViewInit {
-  @ViewChild('scrollContainer') scrollContainer;
+export class NewsAndEventsComponent implements OnInit {
   view: string;
   /****************************Scrolling*******************/
   prevView: string; // used when closing a document to get previous view
@@ -47,9 +47,6 @@ export class NewsAndEventsComponent implements OnInit, AfterViewInit {
   }
   ngOnInit() {
     this.trackScroll();
-  }
-  ngAfterViewInit() {
-
   }
   filterLocalDocs(type: string, documents: Document[]): Document[] {
     return documents.filter((document) => document.type === type);
@@ -149,9 +146,14 @@ export class NewsAndEventsComponent implements OnInit, AfterViewInit {
       break;
     default:
       const elemId: string = args[0];
-      const document: Document = args[1];
+      const doc: Document = args[1];
       this.prevCardId = elemId;
-      this.activeDocument = document;
+      this.activeDocument = doc;
+      setTimeout(() => {
+        const scrollContainer = document.getElementsByClassName('scroll-container')[0];
+        const prevCard =  document.getElementById(this.prevCardId);
+        scrollContainer.scrollTop = 0;
+      }, 10);
       break;
    }
     this.view = type;
@@ -192,10 +194,11 @@ export class NewsAndEventsComponent implements OnInit, AfterViewInit {
     */
     this.view = this.prevView;
     const id = this.prevCardId;
-    const scrollContainer = document.getElementsByClassName('scroll-container')[0];
-    scrollContainer.scrollTop = this.prevScrollPosition;
+    const prevScrollPosition = this.prevScrollPosition;
     setTimeout(() => {
+      const scrollContainer = document.getElementsByClassName('scroll-container')[0];
       const prevCard =  document.getElementById(this.prevCardId);
-    }, 50);
+      scrollContainer.scrollTop = prevScrollPosition;
+    }, 10);
   }
 }

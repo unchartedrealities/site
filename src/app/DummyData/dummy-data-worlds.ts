@@ -7,6 +7,7 @@
     Categories is a great example for what the data field could be used for
     ex: {label: 'Categories', data: ['Outdoors' , 'Exploration', 'Adventure']}
 */
+
 interface Info {
     label: string;
     text?: string;
@@ -20,208 +21,157 @@ interface Profile {
 }
 
 const experienceTemplate: Profile = {
+
     title: 'Title of experience',
+
     src: 'assets/Images/Path_of_Experience',
+
     info: [
+
         {label: 'Some Label To Display', text: 'Text to display'},
+
         {label: 'A Label To Display', data: ['data1', 'data2']}
+
     ],
+
     bio: `Some bio text to display. The paragraphs describing the experience go here. Keep in mind
+
     these are **NOT** single quotes like the rest of the strings. These are the accent mark located under your
+
     escape key. This allows you to have a multi-line string without having to jump through hoops!`
+
 };
+
+const experienceSrc = 'assets/Images/worlds/';
 
 const experience1: Profile = {
-    title: 'Resident Evil 7',
-    src: 'assets/Images/worlds/resi7.jpg',
+    title: 'Travel and Exploration',
+    src: `${experienceSrc}SantaMonica.jpg`,
     info: [
-        {label: 'Developer', text: 'Capcom'},
-        {label: 'Publisher', text: 'Capcom'},
-        {label: 'Release Date', text: 'Jan 24, 2017'},
-        {label: 'Genre', data: ['Survival Horror', 'Action']},
+        {label: 'Image From', text: 'VR Santa Monica Helicopter Flight'},
+        {label: 'Developer', text: 'press360'},
+        {label: 'Genre', data: ['Travel and Exploration']},
     ],
-    bio: `Resident Evil 7: Biohazard is a survival horror game developed and published
-    by Capcom, released in January 2017 for Windows, PlayStation 4, and Xbox One,
-    and in May 2018 for the Nintendo Switch (Japan). Following the more action-oriented
-    Resident Evil 5 and Resident Evil 6, Resident Evil 7 returns to the franchise's
-    survival horror roots, emphasizing exploration. The player controls Ethan Winters
-    as he searches for his wife in a derelict plantation occupied by a cannibal family,
-    solving puzzles and fighting enemies. It is the first main series game to use a
-    first-person view.`
+    bio: `Whether it be current, in the past, or visions of the future, there is no shortage of new
+    places to visit in our Travel Experiences.`
 };
 const experience2: Profile = {
-    title: 'Eve Valkyrie',
-    src: 'assets/Images/worlds/eve_valkyrie.jpg',
+    title: 'Sports and Fitness',
+    src: `${experienceSrc}Everyday-Golf-VR.jpg`,
     info: [
-        {label: 'Developer', text: 'CCP Games'},
-        {label: 'Publisher', text: 'CCP Games & Oculus VR'},
-        {label: 'Release Date', text: 'Mar 28, 2016'},
-        {label: 'Genre', data: ['Sci-Fi', 'Action']}
+        {label: 'Image From', text: 'Everyday Golf VR'},
+        {label: 'Developer', text: 'Wisecat'},
+        {label: 'Genre', data: ['Sports and Fitness']}
     ],
-    bio: `EVE: Valkyrie is a multiplayer dogfighting shooter game set in the EVE Online
-    universe that is designed to use virtual reality headset technology. Originally
-    launched for Microsoft Windows for use with the Oculus Rift virtual reality headset
-    ,CCP Games has announced they plan to enable cross-platform play between the three
-    major VR systems: the Oculus Rift, the HTC Vive, and the PlayStation VR.
-    Released in March 2016, the game has two game mode options: Chronicles can be
-    played in single player, while Combat allows eight by eight combat PvP
-    (player versus player) missions. Reviews generally criticised the limited plot
-    and limitations of single player mode, although the described "arcade experience"
-    was praised for having intuitive controls and "exhilarating" dogfighting features,
-    with PC Powerplay dubbing it "arguably the best VR experience currently available
-    for the [Oculus Rift] platform."`
+
+    bio: `Sports and Fitness covers everything from participating in your favorite sport, 
+    trying one you've never done, or getting a high intensity workout instead of going to the gym, 
+    our selections are sure to deliver the experience you want.`
 };
 const experience3: Profile = {
-    title: 'Lone Echo',
-    src: 'assets/Images/worlds/loneEcho.jpg',
+    title: 'Escape Rooms and Strategy',
+    src: `${experienceSrc}Tales of Escape.jpg`,
     info: [
-        {label: 'Developer', text: 'Ready at Dawn'},
-        {label: 'Publisher', text: 'Oculus Studios'},
-        {label: 'Release Date', text: 'Jul 20, 2017'},
-        {label: 'Genre', data: ['Sci-Fi', 'Action', 'Shooter']}
+        {label: 'Image From', text: 'Tales of Escape'},
+        {label: 'Developer', text: 'On Skull'},
+        {label: 'Genre', data: ['Escape Rooms and Strategy']}
     ],
-    bio: `Lone Echo is a virtual reality adventure game developed by
-    Ready At Dawn, and published by Oculus Studios.[1] Set aboard a space station
-    orbiting Saturn, it allows players to move in zero-gravity by grabbing and pushing
-    off of the environment. In addition to the narrative single-player game, the title
-    includes a team-based multiplayer sports mode called Echo Arena, which was also
-    released as a stand-alone game.`
+
+    bio: `If you enjoy being intellectually challenged with a twist of urgency or fear,
+     we have a multitude of puzzle experiences.  We have a large variety of Escape Rooms to
+     keep you coming back for more and other strategy games to satisfy your need to complete quests,
+     solve puzzles, and test your wits.`
 };
 const experience4: Profile = {
-    title: 'Elder Scrolls V: Skyrim',
-    src: 'assets/Images/worlds/Skyrim.png',
+    title: 'Games and Adventures',
+    src: `${experienceSrc}Space Pirate Trainer.jpg`,
     info: [
-        {label: 'Developer', text: 'Bethesda Game Studios'},
-        {label: 'Publisher', text: 'Bethesda Softworks'},
-        {label: 'Release Date', text: 'Nov 17, 2017'},
-        {label: 'Genre', data: ['Fantasy', 'Action', 'Hack & Slash']}
+        {label: 'Image From', text: 'Space Pirate Trainer'},
+        {label: 'Developer', text: 'I-Illusions'},
+        {label: 'Genre', data: ['Games and Adventure']}
     ],
-    bio: `The Elder Scrolls V: Skyrim is an action role-playing video game developed by
-    Bethesda Game Studios and published by Bethesda Softworks. It is the fifth main installment
-    in The Elder Scrolls series, following The Elder Scrolls IV: Oblivion, and was originally
-    released worldwide for Microsoft Windows, PlayStation 3, and Xbox 360 on November 11, 2011.
-
-    The game's main story revolves around the player character's quest to defeat Alduin
-    the World-Eater, a dragon who is prophesied to destroy the world. The game is set
-    200 years after the events of Oblivion and takes place in the fictional province of
-    Skyrim. Over the course of the game, the player completes quests and develops the
-    character by improving skills. The game continues the open-world tradition of its
-    predecessors by allowing the player to travel anywhere in the game world at any time,
-    and to ignore or postpone the main storyline indefinitely.`
+    bio: `Our immersive recreation center has no shortage of VR games and adventures.
+      From shooters to role playing adventures, including multi-player and co-op configurations,
+       we have every imaginable enemy to battle against and quests to complete.`
 };
 const experience5: Profile = {
-    title: 'Rigs',
-    src: 'assets/Images/worlds/rigs.jpg',
+    title: 'Simulations and Training',
+    src: `${experienceSrc}Aerofly FS2.jpg`,
     info: [
-        {label: 'Developer', text: 'Guerrilla Cambridge'},
-        {label: 'Publisher', text: 'Sony Interactive Entertainment'},
-        {label: 'Release Date', text: 'Oct 13, 2016'},
-        {label: 'Genre', data: ['Sci-Fi', 'Action']}
+        {label: 'Image From', text: 'Aerofly FS2 VR'},
+        {label: 'Developer', text: 'IPACS'},
+        {label: 'Genre', data: ['Simulations and Training']}
     ],
-    bio: `RIGS: Mechanized Combat League is a first-person shooter sports
-    video game developed by Guerrilla Cambridge and published by Sony Interactive
-    Entertainment for the PlayStation 4 console and its virtual reality head-mounted
-    display PlayStation VR. Players take control of large mechs known as "Rigs",
-    as they compete in a professional sports competition set 50 years in the future.
-    The sports competition takes place in an open arena based in real-world location
-    such as Rio de Janeiro and Dubai.
 
-    The overall gameplay consists of a five-minute match divided into two halves.
-    Six players are grouped in two three-man teams. Rigs are equipped with a variety
-    of weapons loadouts, which players can use to score a Takedown by destroying an
-    opposing team's Rig`
+    bio: `With the power of simulation, these experiences allow you to do things never before possible.
+     The unattainable in real life is now laid at your doorstep.  You only have to step inside.
+       Drive a Formula One race car or fly a high speed jet.  Our selections will allow to finish your bucket list.`
 };
 const experience6: Profile = {
-    title: 'Drive Club',
-    src: 'assets/Images/worlds/driveClub.jpg',
+    title: 'Science',
+    src: `${experienceSrc}Mars 2030.png`,
     info: [
-        {label: 'Developer', text: 'Evolution Studios'},
-        {label: 'Publisher', text: 'Sony Computer Entertainment'},
-        {label: 'Release Date', text: 'Oct 13, 2016'},
-        {label: 'Genre', data: ['Racing']}
+        {label: 'Image from', text: 'Mars 2030 VR'},
+        {label: 'Developer', text: 'FMG Studios'},
+        {label: 'Genre', data: ['Science']}
     ],
-    bio: `Driveclub is a racing game in which players compete in racing event
-    around the world in a variety of different fashions. Players can compete
-    in clubs with other players, earning a reputation as one of the best clubs,
-    and leveling up to unlock better items. Another game mode is tour, essentially
-    a campaign mode. Players can compete in standard races, as well as time trials,
-    drifting events, and championship tournaments, which may take place in Norway,
-    Canada, Scotland, India, Japan, and Chile. Players may customize their car, their club,
-    or their driver, and may complete optional challenges during events.
-    A weather system and day-night cycle is also included.`
+    bio: `If you love science, then our experiences will definitely take it to the next level.
+     Two and three dimensions become four as you are inserted into the scientific realm.
+      Experience our world in a brand new way and travel to the far reaches of the cosmos.`
 };
 const experience7: Profile = {
-    title: 'Until Dawn: Rush of Blood',
-    src: 'assets/Images/worlds/rushOfBlood.jpg',
+    title: 'Art and Design',
+    src: `${experienceSrc}Tilt Brush Sarah Northway.png`,
     info: [
-        {label: 'Developer', text: 'Supermassive Games'},
-        {label: 'Publisher', text: 'Sony Interactive Entertainment'},
-        {label: 'Release Date', text: 'Oct 13, 2016'},
-        {label: 'Genre', data: ['Survival Horror', 'Action']}
-    ],
-    bio: `Until Dawn: Rush of Blood is an arcade survival horror first-person shooter
-     developed by Supermassive Games and published by Sony Interactive Entertainment,
-     released on 13 October 2016 worldwide for PlayStation VR headset on PlayStation 4.
-      It is a direct spin-off from Until Dawn and features the player riding a horror-themed
-      roller coaster while shooting at inanimate objects and live enemies.
 
-      The game is a direct spin-off from Until Dawn. The player plays on a roller coaster
-      cart while going through a horror-themed carnival amusement park which grows more
-      intense as the player progresses through the game.[1] The game features seven
-      different roller coasters that feature some of the same locations and characters
-      from its brethren although different themes, and are quickly loaded by default
-      with handguns, although other weapons such as grenade launchers will be available.
-      `
+        {label: 'Image from', text: 'Tilt Brush'},
+        {label: 'Developer', text: 'Google Inc'},
+        {label: 'Image By', text: 'Sarah Northway'},
+        {label: 'Genre', data: ['Art and Design']}
+    ],
+    bio: `If you have a creative flair or if you just like to doodle, our art and design selections
+     put you right in the middle of the action of your masterpieces. Paint, draw, sculpt, build,
+      and engineer in a way you've never experienced before.
+        See all the engine's parts floaing in front of you, step inside your 3D creation
+         and move it around, the fun never stops when your inner artist reveals itself.`
 };
 const experience8: Profile = {
-    title: 'Batman: Arkham VR',
-    src: 'assets/Images/worlds/batman.png',
+    title: 'Education',
+    src: `${experienceSrc}Organon VR Anatomy.jpg`,
     info: [
-        {label: 'Developer', text: 'Rocksteady Studios'},
-        {label: 'Publisher', text: 'Warner Bros Interactive Studios'},
-        {label: 'Release Date', text: 'Oct 11, 2016'},
-        {label: 'Genre', data: ['Action']}
-    ],
-    bio: `Batman: Arkham VR is a virtual reality adventure video game developed by Rocksteady
-    Studios and published by Warner Bros. Interactive Entertainment for PlayStation 4 and
-    Microsoft Windows. Based on the DC Comics superhero Batman, it is a part of the
-    Batman: Arkham series and the first installment to use virtual reality headsets,
-    allowing players to experience the game world from Batman's perspective. Arkham VR
-    was released worldwide on October 11, 2016, for PlayStation 4 and on April 25, 2017,
-    for Microsoft Windows.
 
-    Written by Ian Ball and Martin Lancaster, Arkham VR is based on the franchise's
-    long-running comic book mythos. The game's storyline takes place between 2011's
-    Batman: Arkham City and 2015's Batman: Arkham Knight, and follows Batman as he
-    investigates the disappearance of his allies Nightwing and Robin.`
+        {label: 'Image From', text: '3d Organon VR Anatomy'},
+        {label: 'Developer', text: 'Medis Media'},
+        {label: 'Genre', data: ['Education']}
+
+    ],
+    bio: `Students, young and old, will love this new way to learn and we imagine that
+     memory retention rates just might get higher. Our selections bring a new meaning
+      to the phrase "hands on"!  Textbooks and their pretty pictures are a thing of
+       the past when you can learn a new subject by being there, even at microscopic
+        levels!  If you have a thirst for knowledge, try our educational experiences
+         and impress family and friends with your new found expertise.`
 };
 const experience9: Profile = {
-    title: 'Hustle Kings',
-    src: 'assets/Images/worlds/hustleKings.png',
+    title: 'Multi-player, Teams and Co-ops',
+    src: `${experienceSrc}Run of Mydan2.jpg`,
     info: [
-        {label: 'Developer', text: 'VooFoo Studios'},
-        {label: 'Publisher', text: 'Sony Computer Entertainment'},
-        {label: 'Release Date', text: 'Oct 13, 2016'},
-        {label: 'Genre', data: ['Table games', 'Pool']}
+        {label: 'Image from', text: 'Run of Mydan'},
+        {label: 'Developer', text: 'Virtew.it'},
+        {label: 'Genre', data: ['Multi-player, Teams and Co-ops']}
     ],
-    bio: `Hustle Kings is a pool video game developed by VooFoo Studios for the PlayStation 3.
-    It was released on the PlayStation Store in Europe on 22 December 2009 and in North
-    America on 28 January 2010. The game features a career mode as well as various
-    trick shot and tournament modes. The game also features online play allowing the
-    user to compete against other players over the PlayStation Network. Hustle Kings
-    is also available for the PlayStation Vita portable gaming system.
-
-    Hustle Kings allows the user to play their external music from the PlayStation 3
-    hard drive during gameplay. It also utilises the PlayStation 3's implementation of
-    the YouTube API, allowing users to record video of their gameplay and upload it to
-    the video-sharing website from within the game.[5] Hustle Kings has also been confirmed
-    to support PlayStation Move as an input method. On 11 August 2014, it was announced that
-    Hustle Kings will be coming to the PlayStation 4 in the form of a free-to-play release.
-     On 18 March 2015, Hustle Kings released for the PlayStation 4 in Europe and in North
-     America on 9 June 2015. A port of Hustle Kings titled 'Hustle Kings VR' has been confirmed
-      to be launching with the PlayStation VR headset for the PlayStation 4 on October 13.`
+    bio: `It's twice the fun to do our experiences with others.
+     We provide the ultimate in social engineering when you descend
+      into an experience and need to work with (or against!) your family,
+       friends, co-workers, or even strangers on the other side of the world.
+        We offer a variety of situations that fit your needs - shared, cooperative,
+         arena-style, and competitive.  If you are looking to do something new with
+          those you spend time with, ask about our offerings to get you into the action together.`
 };
 export const worldsDummy: Profile[] = [
+
     experience1, experience2, experience3, experience4, experience5, experience6,
+
     experience7, experience8, experience9
+
 ];

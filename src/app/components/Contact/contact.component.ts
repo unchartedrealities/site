@@ -94,7 +94,7 @@ export class ContactComponent {
       default:
         break;
     }
-    console.log('Contact Obj', emailObj);
-    this.emailService.sendEmail(emailObj);
+    alert('Email service is coming soon! Please feel free to give us a call at (844)633-0075');
+    // this.emailService.sendEmail(emailObj);
   }
 }
