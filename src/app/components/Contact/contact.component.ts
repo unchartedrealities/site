@@ -9,21 +9,21 @@ import * as $ from 'jquery';
   styleUrls: ['./contact.component.scss']
 })
 export class ContactComponent {
-  form = 'visitor'; // visitor, or vendor
+  /*form = 'visitor'; // visitor, or vendor
   visitorForm: FormGroup;
-  vendorForm: FormGroup;
+  vendorForm: FormGroup;    */
   activeForm: FormGroup;
   contactForm: FormGroup;
   constructor(private fb: FormBuilder, private emailService: EmailService) {
-    this.createVisitorForm();
-    this.createVendorForm();
+  /*  this.createVisitorForm();
+    this.createVendorForm();  */
     this.createContactForm();
-    this.activeForm = this.visitorForm;
+    this.activeForm = this.contactForm;                /*visitorForm;*/
   }
-  toggleForm(formType): void {
-    /*
+ /* toggleForm(formType): void {
+    
       + Change view based on user clicking 'Visitor' or 'Vendor' button
-    */
+  
    this.form = formType;
     switch (formType) {
       case 'visitor':
@@ -33,8 +33,8 @@ export class ContactComponent {
         this.activeForm = this.vendorForm;
         break;
       default:
-        break;
-    }
+        break;  
+     }   
   }
   createVisitorForm(): void {
     this.visitorForm = this.fb.group({
@@ -62,16 +62,16 @@ export class ContactComponent {
       productType: ['', Validators.required ],
       subject: ['', Validators.required ],
       message: ['', Validators.required ]
-    });
-  }
+    });  */
+  }   
   createContactForm(): void {
     this.contactForm = this.fb.group({
       address: ['933 SW 3rd Ave, Portland, OR', Validators.required ],
       phone: ['(844)633-0075', Validators.required ],
       email: ['​info@unchartedrealities.com', Validators.required ],
-    });
+    }),
   }
-  /*get email() { return this.activeForm.get('email'); }*/
+  /*get email() { return this.activeForm.get('email'); }
   sendEmail(): void {
     const type = this.form;
     let emailObj: any = null;
@@ -99,5 +99,5 @@ export class ContactComponent {
     }
     console.log('Contact Obj', emailObj);
     this.emailService.sendEmail(emailObj);
-  }
+  }*/
 }
