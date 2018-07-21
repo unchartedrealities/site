@@ -1,8 +1,10 @@
 import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 import { News, Events } from '../../Interfaces/interfaces';
 import {DocumentService} from '../../Services/document.service';
+import {Document} from '../../DummyData/news&events';
 import {format, startOfDay} from 'date-fns';
 import * as compose from 'lodash/fp/compose';
+import * as curry from 'lodash/fp/curry';
 import * as $ from 'jquery';
 @Component({
   selector: 'app-news-and-events',
@@ -31,18 +33,33 @@ export class NewsAndEventsComponent implements OnInit, AfterViewInit {
   constructor(private docApi: DocumentService) {
     this.view = 'news';
     this.newsNumDocsReturned = 0;
+   //  const docs = this.docApi.getLocalDocs();
+   const curryFilterDocs = curry(this.filterLocalDocs);
+   //curryFilterDocs('news')(this.docApi.getLocalDocs())
+   // console.log(curryFilterDocs); 
+  
+    this.documents = compose(
+      curry(this.filterLocalDocs)('news'),
+      this.docApi.getLocalDocs
+    )();
+    console.log('News Docs', this.documents);
+    /*
     this.documents = [];
     this.dateUBoundNews = parseInt(format(new Date(), 'YYYYMMDD'), 10);
     this.dateUBoundEvents = parseInt(format(new Date(), 'YYYYMMDD'), 10);
     this.getNewsDocs(this.dateUBoundNews);
     this.getNumRowsNews();
-    this.getNumRowsEvents();
+    this.getNumRowsEvents(); */
   }
   ngOnInit() {
     this.trackScroll();
   }
   ngAfterViewInit() {
 
+  }
+  filterLocalDocs(type: string, documents: Document[]): Document[] {
+    console.log('Filter local Docs', type, documents);
+    return documents.filter((document) => document.type === type);
   }
   getFormattedDocs(existing: any[], incoming: any[]): any[] {
     /*
@@ -116,6 +133,44 @@ export class NewsAndEventsComponent implements OnInit, AfterViewInit {
     }, true);
   }
   toggleView(type, ...args): void {
+    /*
+      + Allows users to switch between 'news' and 'events' views
+      + 'news' view will show news documents
+      + 'events' view will show events documents
+      + prevView refers to only an 'event' or 'news' page and is thus only set on those types
+        It iwas used when closing 'readMore' document
+    */
+   console.log('Toggling View', type);
+   this.prevView = this.view;
+   switch (type) {
+     case 'news':
+      this.documents = [];
+      this.documents = compose(
+        curry(this.filterLocalDocs)('news'),
+        this.docApi.getLocalDocs
+      )();
+      break;
+     case 'events':
+      this.documents = [];
+      this.documents = compose(
+        curry(this.filterLocalDocs)('events'),
+        this.docApi.getLocalDocs
+      )();
+      break;
+    default:
+      const elemId: string = args[0];
+      const document: Document = args[1];
+      this.prevCardId = elemId;
+      this.activeDocument = document;
+      console.log('Elem Id', elemId);
+      break;
+   }
+    this.view = type;
+    console.log('New View: ' + this.view);
+    console.log('Prev View: ' + this.prevView);
+    console.log('Args', args); 
+  }
+  toggleViewDB(type, ...args): void {
     /*
       + Allows users to switch between 'news' and 'events' views
       + 'news' view will show news documents

@@ -97,4 +97,4 @@ const event3: Document = {
     body: 'Uncharted Realities is havingn an event. Bring all your friends and family for a great time!' +
     'The event begins at 12pm sharp so please be on time as not to miss out on any of the virtual action.'
 };
-export const documentsDummy: Document[] = [news1, news2, news3, event1, event2, event3];
+export const documents: Document[] = [news1, news2, news3, event1, event2, event3];

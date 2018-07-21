@@ -8,7 +8,6 @@ export class EmailService {
   }
   sendEmail(data) {
     console.log('Data', data);
-    /*
     $.ajax({
         type: 'POST',
         url: 'https://mandrillapp.com/api/1.0/messages/send.json',
@@ -27,12 +26,17 @@ export class EmailService {
             'subject': data.subject,
             'html': data.html
           }
+        },
+        success: (response) => {
+          console.log('Mandril Response', response);
+          alert(`Thank you for contacting our team at Uncharted Realities! \n
+          Our team will review your email and get back to you as soon as possible.`);
+        },
+        error: (error) => {
+          console.log('Mandril Error', error);
+          alert(`We're sorry, your email could not be sent at this time. \n
+          We apologize for the inconvenience`);
         }
-      }).done(function(response) {
-        console.log('Mandril Response', response)
-       alert(`Thank you for contacting our team at Uncharted Realities! \n
-       Our team will review your email and get back to you as soon as possible.`);
       });
-      */
   }
 }
