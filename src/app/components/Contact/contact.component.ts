@@ -63,7 +63,7 @@ export class ContactComponent {
       subject: ['', Validators.required ],
       message: ['', Validators.required ]
     });  */
-  }   
+  };   
   createContactForm(): void {
     this.contactForm = this.fb.group({
       address: ['933 SW 3rd Ave, Portland, OR', Validators.required ],
