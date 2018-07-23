@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, SecurityContext } from '@angular/core';
+import { Component, OnInit, Input, SecurityContext, AfterViewInit } from '@angular/core';
 import * as $ from 'jquery';
 
 interface Info {
@@ -23,7 +23,7 @@ interface Theme {
   styleUrls: ['./profile.component.scss']
 })
 
-export class ProfileComponent implements OnInit {
+export class ProfileComponent implements OnInit, AfterViewInit {
     @Input() profile: Profile;
     @Input() theme: Theme;
     @Input() hideFunc: any; // function passed from parent which hides the ProfileComponent and returns to prev view
@@ -32,6 +32,8 @@ export class ProfileComponent implements OnInit {
     sanitizedSecondary: any; // to allow secondary theme color to be injected into template safely
     constructor() {}
     ngOnInit() {
+    }
+    ngAfterViewInit() {
         this.applyTheme(this.theme);
     }
     applyTheme(theme): void {

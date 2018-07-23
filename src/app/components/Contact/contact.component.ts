@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {EmailService} from '../../Services/email.service';
+import {ValidationService} from '../../Services/validation.service';
 import * as $ from 'jquery';
 
 @Component({
@@ -40,25 +41,20 @@ export class ContactComponent {
     this.visitorForm = this.fb.group({
       firstName: ['', Validators.required ],
       lastName: ['', Validators.required ],
-      email: ['', Validators.required],
-      phone: ['', Validators.required ],
+      email: ['', [Validators.required, ValidationService.emailValidator]],
+      phone: ['', [Validators.required, ValidationService.phoneNumberValidator ]],
       message: '',
     },
     );
-
-    // EMAIL VALIDATION Validators.pattern('[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+')
-  }
-  EmailValidator() {
-
   }
   createVendorForm(): void {
     this.vendorForm = this.fb.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required ],
-      email: ['', Validators.required ],
-      phone: ['', Validators.required ],
+      email: ['', [Validators.required, ValidationService.emailValidator]],
+      phone: ['', [Validators.required, ValidationService.phoneNumberValidator ]],
       companyName: ['', Validators.required ],
-      companyAddress: ['', Validators.required ],
+      companyAddress: ['', [Validators.required, ValidationService.addressValidator ]],
       productType: ['', Validators.required ],
       subject: ['', Validators.required ],
       message: ['', Validators.required ]
@@ -66,15 +62,16 @@ export class ContactComponent {
   }
   createContactForm(): void {
     this.contactForm = this.fb.group({
-      address: ['933 SW 3rd Ave, Portland, OR', Validators.required ],
-      phone: ['(844)633-0075', Validators.required ],
+      address: ['We will be located soon at 933 SW 3rd Ave, Portland, OR', Validators.required ],
+      phone: ['(844)633-0075 - Call or Text Us!', Validators.required ],
       email: ['​info@unchartedrealities.com', Validators.required ],
     });
   }
-  /*get email() { return this.activeForm.get('email'); }*/
   sendEmail(): void {
     const type = this.form;
     let emailObj: any = null;
+    // Get rid of accidental trailing white spaces
+    Object.keys(this.form).forEach((key) => this.form[key] = this.form[key].trim());
     switch (type) {
       case 'vendor':
         emailObj = Object.assign({html: ''}, this.vendorForm.value);
@@ -97,7 +94,7 @@ export class ContactComponent {
       default:
         break;
     }
-    console.log('Contact Obj', emailObj);
-    this.emailService.sendEmail(emailObj);
+    alert('Email service is coming soon! Please feel free to give us a call or text at (844)633-0075');
+    // this.emailService.sendEmail(emailObj);
   }
 }

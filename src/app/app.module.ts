@@ -18,8 +18,9 @@ import { ShopComponent } from './components/Shop/shop.component';
 import { ShopProfileComponent } from './components/shop-profile/shop-profile.component';
 import { ReservationComponent } from './components/Reservation/reservation.component';
 import { NewsAndEventsComponent } from './components/news-and-events/news-and-events.component';
+import { ControlMessagesComponent } from './components/control-messages/control-messages.component';
 
-import {DocumentService} from './Services/document.service';
+import { DocumentService } from './Services/document.service';
 import {EmailService} from './Services/email.service';
 
 const appRoutes = [
@@ -49,7 +50,8 @@ const appRoutes = [
     ShopComponent,
     ShopProfileComponent,
     ReservationComponent,
-    NewsAndEventsComponent
+    NewsAndEventsComponent,
+    ControlMessagesComponent
   ],
   imports: [
     BrowserModule,

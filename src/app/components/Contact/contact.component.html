@@ -45,12 +45,14 @@
                                         <input type="email" class="form-control" id="visitorEmail" 
                                         placeholder="name@example.com"
                                         formControlName="email">
+                                        <app-control-messages [control]="visitorForm.controls.email"></app-control-messages>
                                     </div>
                                     <div class="form-group">
                                         <label for="visitorNumber">Phone Number</label>
                                         <input type="email" class="form-control" id="visitorNumber" 
                                         placeholder="(xxx)xxx-xxxx"
                                         formControlName="phone">
+                                        <app-control-messages [control]="visitorForm.controls.phone"></app-control-messages>
                                     </div>
                                     <div class="form-group">
                                         <label for="visitorMessage">Message</label>
@@ -81,12 +83,14 @@
                                         <input type="email" class="form-control" id="vendorEmail" 
                                         placeholder="name@example.com"
                                         formControlName="email">
+                                        <app-control-messages [control]="vendorForm.controls.email"></app-control-messages>
                                     </div>
                                     <div class="form-group">
                                         <label for="vendorNumber">Phone Number</label>
                                         <input type="text" class="form-control" id="vendorNumber" 
                                         placeholder="(xxx)xxx-xxxx"
                                         formControlName="phone">
+                                        <app-control-messages [control]="vendorForm.controls.phone"></app-control-messages>
                                     </div>
                                     <div class="form-group">
                                         <label for="vendorCompany">Company Name</label>
@@ -99,6 +103,7 @@
                                         <input type="text" class="form-control" id="vendorAddress" 
                                         placeholder="Company Address"
                                         formControlName="companyAddress">
+                                        <app-control-messages [control]="vendorForm.controls.companyAddress"></app-control-messages>
                                     </div>
                                     <div class="form-group">
                                         <label for="vendorProduct">Product Type</label>
@@ -120,7 +125,13 @@
                                         formControlName="message"></textarea>
                                     </div>
                                 </form>
-                                <button 
+                                <button *ngIf="form === 'visitor'"
+                                type="button" 
+                                style="font-family: NeoSans"
+                                class="btn btn-dark btn-lg" 
+                                [disabled]="!visitorForm.valid"
+                                (click)="sendEmail()">Submit</button>
+                                <button *ngIf="form === 'vendor'"
                                 type="button" 
                                 style="font-family: NeoSans"
                                 class="btn btn-dark btn-lg" 

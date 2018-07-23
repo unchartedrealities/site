@@ -1,10 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient,  HttpHeaders, HttpParams} from '@angular/common/http';
+import {Document, documents} from '../DummyData/news&events';
 import * as $ from 'jquery';
 declare var require: any;
-
-// const fs = require('fs');
-// const PDFParser = require('pdf2json');
 
 @Injectable()
 export class DocumentService {
@@ -12,6 +10,9 @@ export class DocumentService {
   private response$;
   constructor(private http: HttpClient) {
 
+  }
+  getLocalDocs(): Document[] {
+    return documents;
   }
   async selectFromNewsDB(dateUBound: any) {
     const url = 'http://localhost/UnchartedRealities/api/actions/getNews.php';
