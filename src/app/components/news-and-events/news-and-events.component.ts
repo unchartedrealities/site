@@ -1,16 +1,18 @@
-import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { News, Events } from '../../Interfaces/interfaces';
 import {DocumentService} from '../../Services/document.service';
+import {Document} from '../../DummyData/news&events';
 import {format, startOfDay} from 'date-fns';
 import * as compose from 'lodash/fp/compose';
+import * as curry from 'lodash/fp/curry';
 import * as $ from 'jquery';
+import { ComponentFixture } from '@angular/core/testing';
 @Component({
   selector: 'app-news-and-events',
   templateUrl: './news-and-events.component.html',
   styleUrls: ['./news-and-events.component.scss']
 })
-export class NewsAndEventsComponent implements OnInit, AfterViewInit {
-  @ViewChild('scrollContainer') scrollContainer;
+export class NewsAndEventsComponent implements OnInit {
   view: string;
   /****************************Scrolling*******************/
   prevView: string; // used when closing a document to get previous view
@@ -31,18 +33,23 @@ export class NewsAndEventsComponent implements OnInit, AfterViewInit {
   constructor(private docApi: DocumentService) {
     this.view = 'news';
     this.newsNumDocsReturned = 0;
+    this.documents = compose(
+      curry(this.filterLocalDocs)('news'),
+      this.docApi.getLocalDocs
+    )();
+    /*
     this.documents = [];
     this.dateUBoundNews = parseInt(format(new Date(), 'YYYYMMDD'), 10);
     this.dateUBoundEvents = parseInt(format(new Date(), 'YYYYMMDD'), 10);
     this.getNewsDocs(this.dateUBoundNews);
     this.getNumRowsNews();
-    this.getNumRowsEvents();
+    this.getNumRowsEvents(); */
   }
   ngOnInit() {
     this.trackScroll();
   }
-  ngAfterViewInit() {
-
+  filterLocalDocs(type: string, documents: Document[]): Document[] {
+    return documents.filter((document) => document.type === type);
   }
   getFormattedDocs(existing: any[], incoming: any[]): any[] {
     /*
@@ -78,7 +85,6 @@ export class NewsAndEventsComponent implements OnInit, AfterViewInit {
     const newsDocs = await this.docApi.selectFromNewsDB(dateUBound);
     const incoming = newsDocs.records;
     const existing = this.documents;
-    console.log('News Docs', newsDocs);
      const getUniqueFormattedDocs = compose(
       this.removeArrDuplicates,
       this.getFormattedDocs
@@ -90,7 +96,6 @@ export class NewsAndEventsComponent implements OnInit, AfterViewInit {
     const eventsDocs = await this.docApi.selectFromEventsDB(dateUBound);
     const incoming = eventsDocs.records;
     const existing = this.documents;
-    console.log('Events Docs', eventsDocs);
     const getUniqueFormattedDocs = compose(
       this.removeArrDuplicates,
       this.getFormattedDocs
@@ -123,7 +128,44 @@ export class NewsAndEventsComponent implements OnInit, AfterViewInit {
       + prevView refers to only an 'event' or 'news' page and is thus only set on those types
         It iwas used when closing 'readMore' document
     */
-   console.log('Toggling View', type);
+   this.prevView = this.view;
+   switch (type) {
+     case 'news':
+      this.documents = [];
+      this.documents = compose(
+        curry(this.filterLocalDocs)('news'),
+        this.docApi.getLocalDocs
+      )();
+      break;
+     case 'events':
+      this.documents = [];
+      this.documents = compose(
+        curry(this.filterLocalDocs)('events'),
+        this.docApi.getLocalDocs
+      )();
+      break;
+    default:
+      const elemId: string = args[0];
+      const doc: Document = args[1];
+      this.prevCardId = elemId;
+      this.activeDocument = doc;
+      setTimeout(() => {
+        const scrollContainer = document.getElementsByClassName('scroll-container')[0];
+        const prevCard =  document.getElementById(this.prevCardId);
+        scrollContainer.scrollTop = 0;
+      }, 10);
+      break;
+   }
+    this.view = type;
+  }
+  toggleViewDB(type, ...args): void {
+    /*
+      + Allows users to switch between 'news' and 'events' views
+      + 'news' view will show news documents
+      + 'events' view will show events documents
+      + prevView refers to only an 'event' or 'news' page and is thus only set on those types
+        It iwas used when closing 'readMore' document
+    */
    switch (type) {
      case 'news':
       this.documents = [];
@@ -140,12 +182,9 @@ export class NewsAndEventsComponent implements OnInit, AfterViewInit {
       const document: Document = args[1];
       this.prevCardId = elemId;
       this.activeDocument = document;
-      console.log('Elem Id', elemId);
       break;
    }
     this.view = type;
-    console.log('New View: ' + this.view);
-    console.log('Prev View: ' + this.prevView);
   }
   closeDocument(): void {
     /*
@@ -155,15 +194,11 @@ export class NewsAndEventsComponent implements OnInit, AfterViewInit {
     */
     this.view = this.prevView;
     const id = this.prevCardId;
-    const scrollContainer = document.getElementsByClassName('scroll-container')[0];
-    scrollContainer.scrollTop = this.prevScrollPosition;
+    const prevScrollPosition = this.prevScrollPosition;
     setTimeout(() => {
-      console.log('Elem Id:' + this.prevCardId);
+      const scrollContainer = document.getElementsByClassName('scroll-container')[0];
       const prevCard =  document.getElementById(this.prevCardId);
-
-      console.log('Scroll Container', scrollContainer);
-      // console.log('Prev Card', prevCard);
-      // prevCard.scrollIntoView();
-    }, 50);
+      scrollContainer.scrollTop = prevScrollPosition;
+    }, 10);
   }
 }

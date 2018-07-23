@@ -4,12 +4,18 @@
         height: 35vh;
        width: inherit;
     }
+    #profile{
+        margin-bottom: 20vh;
+    }
    
 }
 @include media-breakpoint-only(sm) {
     .profile-image img{
         height: 55vh;
         width: inherit;
+    }
+    #profile{
+        margin-bottom: 15vh;
     }
 }
 @include media-breakpoint-up(md) {
