@@ -44,6 +44,24 @@ const experienceTemplate: Profile = {
 
 const experienceSrc = 'assets/Images/worlds/';
 
+const experience0: Profile = {
+    title: 'Packages and Pricing',
+    src: `${experienceSrc}adventure_3.jpg`,
+    info: [
+    /*    {label: 'Image From', text: 'VR Santa Monica Helicopter Flight'},
+        {label: 'Developer', text: 'press360'},
+        {label: 'Genre', data: ['Travel and Exploration']}, */
+    ], 
+    bio: `When you come to Uncharted Realities, we believe in discussing your needs and interests one on one so that we can help get the most from your visit.
+    
+    You will first choose your category and we'll discuss our experiences.  You can then determine if you want our Introductory, Standard, or Extended Stay Packages.
+    
+    The longer your stay, the better value of your package.  Discounts also available when you bring a group!
+    
+    For our repeat customers who expect to return on a regular basis (ex. fitness programs), we have monthly subscriptions available.`
+};
+
+
 const experience1: Profile = {
     title: 'Travel and Exploration',
     src: `${experienceSrc}SantaMonica.jpg`,
@@ -170,7 +188,7 @@ const experience9: Profile = {
 };
 export const worldsDummy: Profile[] = [
 
-    experience1, experience2, experience3, experience4, experience5, experience6,
+    experience0, experience1, experience2, experience3, experience4, experience5, experience6,
 
     experience7, experience8, experience9
 

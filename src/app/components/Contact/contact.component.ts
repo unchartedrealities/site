@@ -62,8 +62,8 @@ export class ContactComponent {
   }
   createContactForm(): void {
     this.contactForm = this.fb.group({
-      address: ['933 SW 3rd Ave, Portland, OR', Validators.required ],
-      phone: ['(844)633-0075', Validators.required ],
+      address: ['We will be located soon at 933 SW 3rd Ave, Portland, OR', Validators.required ],
+      phone: ['(844)633-0075 - Call or Text Us!', Validators.required ],
       email: ['​info@unchartedrealities.com', Validators.required ],
     });
   }
@@ -94,7 +94,7 @@ export class ContactComponent {
       default:
         break;
     }
-    alert('Email service is coming soon! Please feel free to give us a call at (844)633-0075');
+    alert('Email service is coming soon! Please feel free to give us a call or text at (844)633-0075');
     // this.emailService.sendEmail(emailObj);
   }
 }
