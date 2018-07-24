@@ -80,10 +80,10 @@ export class AppComponent implements OnInit {
   handleSocialMediaBtnClick(btn: string): void {
     // btn values: instagram, googlePlus, facebook, twitter, phone
     // no Google Plus account set yet, so alert user and do nothing
-    if (btn === 'googlePlus') {
-      alert('Google Plus Account Coming Soon!');
-      return;
-    }
+ //   if (btn === 'googlePlus') {
+ //     alert('Google Plus Account Coming Soon!');
+ //     return;
+ //   }
     // use btn string to source action url
     const action = {
       phone: 'tel:8446330075',
