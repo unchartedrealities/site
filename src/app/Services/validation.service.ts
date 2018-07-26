@@ -18,7 +18,6 @@ export class ValidationService {
     return config[validatorName];
   }
   static emailValidator(control) {
-    console.log(control.value);
     const email = control.value.trim();
     const regex =/[a-z0-9!#$%&'*+=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g;
     if ( email === '' || ! regex.test(email)) {

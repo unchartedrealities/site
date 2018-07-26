@@ -1,36 +1,24 @@
 import { Injectable } from '@angular/core';
+import { HttpClient,  HttpHeaders, HttpParams} from '@angular/common/http';
 import * as $ from 'jquery';
 @Injectable()
 export class EmailService {
   apiKey: string;
-  constructor() {
+  constructor(private http: HttpClient) {
     this.apiKey = '_rByuoSNxDRpOLSaplgooA';
   }
+  sendEmailPhp(data) {
+      const url = 'http://localhost/UnchartedRealities/api/email/email.php';
+      const headers = new HttpHeaders({'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'});
+      const req = `data=${data}`;
+      const response: any = this.http.post(url, req, {headers : headers})
+      .subscribe((resp) => {
+        console.log('Email', resp);
+      }, (error) => {
+        console.log('Email err', error);
+      });
+  }
   sendEmail(data) {
-    console.log('Data', data);
-    $.ajax({
-      type: 'POST',
-      url: 'https://mandrillapp.com/api/1.0/messages/send.json',
-      data: {
-        'key': this.apiKey,
-        'message': {
-          'from_email': data.email,
-          'to': [
-              {
-                'email': 'richard.morales.thompson@gmail.com',
-                'name': 'Uncharted Realities Admin',
-                'type': 'to'
-              }
-            ],
-          'autotext': 'true',
-          'subject': data.subject,
-          'html': 'Test message'
-        }
-      }
-    }).done(function(response) {
-      console.log(response); // if you're into that sorta thing
-    });
-    /*
     $.ajax({
         type: 'POST',
         url: 'https://mandrillapp.com/api/1.0/messages/send.json',
@@ -61,7 +49,5 @@ export class EmailService {
           We apologize for the inconvenience`);
         }
       });
-  */
-
   }
 }

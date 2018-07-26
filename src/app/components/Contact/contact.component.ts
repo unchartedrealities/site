@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {EmailService} from '../../Services/email.service';
 import {ValidationService} from '../../Services/validation.service';
+import * as compose from 'lodash/fp/compose';
 import * as $ from 'jquery';
 
 @Component({
@@ -47,6 +48,16 @@ export class ContactComponent {
     },
     );
   }
+  testCreateVisitorForm(): void {
+    this.visitorForm = this.fb.group({
+      firstName: ['Test', Validators.required ],
+      lastName: ['User', Validators.required ],
+      email: ['testEmail@email.com', [Validators.required, ValidationService.emailValidator]],
+      phone: ['8004354455', [Validators.required, ValidationService.phoneNumberValidator ]],
+      message: 'Test message',
+    },
+    );
+  }
   createVendorForm(): void {
     this.vendorForm = this.fb.group({
       firstName: ['', Validators.required],
@@ -67,33 +78,57 @@ export class ContactComponent {
       email: ['​info@unchartedrealities.com', Validators.required ],
     });
   }
-  sendEmail(): void {
-    const type = this.form;
-    let emailObj: any = null;
-    // Get rid of accidental trailing white spaces
-    Object.keys(this.form).forEach((key) => this.form[key] = this.form[key].trim());
+  getForm(type: string): FormGroup {
+    let form = null;
     switch (type) {
-      case 'vendor':
-        emailObj = Object.assign({html: ''}, this.vendorForm.value);
-        emailObj.html = `\n
-              From: ${emailObj.firstName + ' ' + emailObj.lastName} \n
-                Phone: ${emailObj.phone} \n
-                Message: ${emailObj.message} \n
-                Company: ${emailObj.companyName} \n
-                Company Address: ${emailObj.companyAddress} \n
-                Product Type: ${emailObj.productType} \n
-                Message: ${emailObj.message}`;
-        break;
       case 'visitor':
-        emailObj = Object.assign({html: '', subject: 'Visitor Inquiry'}, this.visitorForm.value);
-        emailObj.html = `\n
-                From: ${emailObj.firstName + ' ' + emailObj.lastName} \n
-                Phone: ${emailObj.phone} \n
-                Message: ${emailObj.message}`;
+      form = this.visitorForm;
+        break;
+      case 'vendor':
+      form = this.vendorForm;
         break;
       default:
         break;
     }
+    // return deep copy of form
+    return form;
+  }
+  trimForm(form: any): any {
+    Object.keys(form).forEach((key) => this.form[key] = this.form[key].trim());
+    return form;
+  }
+  testEmail(): void {
+
+  }
+  getEmailObj(type: string): any {
+    let emailObj: any = null;
+    switch (type) {
+      case 'vendor':
+        emailObj = Object.assign({html: ''}, this.vendorForm.value);
+        emailObj.html = `\n
+              From: ${emailObj.firstName.trim() + ' ' + emailObj.lastName.trim()} \n
+                Phone: ${emailObj.phone.trim()} \n
+                Message: ${emailObj.message.trim()} \n
+                Company: ${emailObj.companyName.trim()} \n
+                Company Address: ${emailObj.companyAddress.trim()} \n
+                Product Type: ${emailObj.productType.trim()} \n
+                Message: ${emailObj.message.trim()}`;
+        break;
+      case 'visitor':
+        emailObj = Object.assign({html: '', subject: 'Visitor Inquiry'}, this.visitorForm.value);
+        emailObj.html = `\n
+                From: ${emailObj.firstName.trim() + ' ' + emailObj.lastName.trim()} \n
+                Phone: ${emailObj.phone.trim()} \n
+                Message: ${emailObj.message.trim()}`;
+        break;
+      default:
+        break;
+    }
+    return emailObj;
+  }
+  sendEmail(): void {
+    const type = this.form;
+    const emailObj: any = this.getEmailObj(type);
     alert('Email service is coming soon! Please feel free to give us a call at (844)633-0075');
     // this.emailService.sendEmail(emailObj);
   }

@@ -3,7 +3,9 @@
     .spacing{
         height: 10vh;
     }
-   
+   .documentCard{
+       margin-bottom: 35vh;
+   }
 }
 @include media-breakpoint-only(sm){
     img{
