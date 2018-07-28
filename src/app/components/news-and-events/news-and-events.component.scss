@@ -6,10 +6,16 @@
    .documentCard{
        margin-bottom: 35vh;
    }
+   .card:last-child{
+        margin-bottom: 35vh;
+    }
 }
 @include media-breakpoint-only(sm){
     img{
         height: 60vh;
+    }
+    .card:last-child{
+        margin-bottom: 20vh;
     }
 }
 @include media-breakpoint-up(md){
@@ -35,6 +41,9 @@
     img{
         height: 60vh;
     }
+    .card:last-child{
+        margin-bottom: 20vh;
+    }
 }
 .page-background {
     background: url('assets/Images/backgrounds//virtual_reality/vr_woman.jpg');
@@ -48,9 +57,7 @@
 .underline{
     border-bottom: 1px solid white;
 }
-.cardContainer:last-child{
-    margin-bottom: 10vh;
-}
+
 .card-header{
     background: white;
     min-height: 15vh;
