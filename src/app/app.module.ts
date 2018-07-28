@@ -12,7 +12,7 @@ import { ContactComponent } from './components/Contact/contact.component';
 import { VendorsComponent } from './components/Vendors/vendors.component';
 import { WorldsComponent } from './components/Worlds/worlds.component';
 import { ProfileComponent } from './components/Profile/profile.component';
-import { WorldsPipe } from './Pipes/worlds-pipe.pipe';
+
 import { GlassCardComponent } from './glass-card/glass-card.component';
 import { ShopComponent } from './components/Shop/shop.component';
 import { ShopProfileComponent } from './components/shop-profile/shop-profile.component';
@@ -23,6 +23,8 @@ import { ControlMessagesComponent } from './components/control-messages/control-
 import { DocumentService } from './Services/document.service';
 import {EmailService} from './Services/email.service';
 
+import { WorldsPipe } from './Pipes/worlds-pipe.pipe';
+import { PhonePipe } from './Pipes/phone-pipe.pipe';
 const appRoutes = [
   { path: 'home', component: HomeComponent },
   { path: 'about', component: AboutComponent },
@@ -45,13 +47,14 @@ const appRoutes = [
     VendorsComponent,
     WorldsComponent,
     ProfileComponent,
-    WorldsPipe,
     GlassCardComponent,
     ShopComponent,
     ShopProfileComponent,
     ReservationComponent,
     NewsAndEventsComponent,
-    ControlMessagesComponent
+    ControlMessagesComponent,
+    WorldsPipe,
+    PhonePipe
   ],
   imports: [
     BrowserModule,
@@ -60,7 +63,7 @@ const appRoutes = [
     RouterModule.forRoot(appRoutes),
     NguCarouselModule
   ],
-  providers: [WorldsPipe, DocumentService, EmailService],
+  providers: [WorldsPipe, PhonePipe, DocumentService, EmailService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

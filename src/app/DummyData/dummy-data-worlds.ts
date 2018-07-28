@@ -64,8 +64,8 @@ const experience2: Profile = {
         {label: 'Genre', data: ['Sports and Fitness']}
     ],
 
-    bio: `Sports and Fitness covers everything from participating in your favorite sport, 
-    trying one you've never done, or getting a high intensity workout instead of going to the gym, 
+    bio: `Sports and Fitness covers everything from participating in your favorite sport,
+    trying one you've never done, or getting a high intensity workout instead of going to the gym,
     our selections are sure to deliver the experience you want.`
 };
 const experience3: Profile = {

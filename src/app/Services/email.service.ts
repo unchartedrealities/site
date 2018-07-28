@@ -4,50 +4,22 @@ import * as $ from 'jquery';
 @Injectable()
 export class EmailService {
   apiKey: string;
+  urlDev: string;
+  urlProd: string;
   constructor(private http: HttpClient) {
     this.apiKey = '_rByuoSNxDRpOLSaplgooA';
-  }
-  sendEmailPhp(data) {
-      const url = 'http://localhost/UnchartedRealities/api/email/email.php';
-      const headers = new HttpHeaders({'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'});
-      const req = `data=${data}`;
-      const response: any = this.http.post(url, req, {headers : headers})
-      .subscribe((resp) => {
-        console.log('Email', resp);
-      }, (error) => {
-        console.log('Email err', error);
-      });
+    this.urlDev = 'http://localhost/UnchartedRealities/api/email/email.php';
+    this.urlProd = '/UnchartedRealities/api/email/email.php';
   }
   sendEmail(data) {
-    $.ajax({
-        type: 'POST',
-        url: 'https://mandrillapp.com/api/1.0/messages/send.json',
-        data: {
-          'key': this.apiKey,
-          'message': {
-            'from_email': data.email,
-            'to': [
-                {
-                  'email': 'info@unchartedrealities.com',
-                  'name': 'Uncharted Realities Admin',
-                  'type': 'to'
-                }
-              ],
-            'autotext': 'true',
-            'subject': data.subject,
-            'html': data.html
-          }
-        },
-        success: (response) => {
-          console.log('Mandril Response', response);
-          alert(`Thank you for contacting our team at Uncharted Realities! \n
-          Our team will review your email and get back to you as soon as possible.`);
-        },
-        error: (error) => {
-          console.log('Mandril Error', error);
-          alert(`We're sorry, your email could not be sent at this time. \n
-          We apologize for the inconvenience`);
-        }
+      const url = this.urlProd;
+      const headers = new HttpHeaders({'Content-Type': 'application/json; charset=UTF-8'});
+      const req = data;
+      const response: any = this.http.post(url, data)
+      .subscribe((resp) => {
+        console.log('Success', resp);
+      }, (error) => {
+        console.log('Error', error);
       });
   }
 }

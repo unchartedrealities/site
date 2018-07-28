@@ -51,8 +51,15 @@
                                         <label for="visitorNumber">Phone Number</label>
                                         <input type="email" class="form-control" id="visitorNumber" 
                                         placeholder="(xxx)xxx-xxxx"
-                                        formControlName="phone">
+                                        formControlName="phone"
+                                        [value]="visitorForm.get('phone').value | PhonePipe">
                                         <app-control-messages [control]="visitorForm.controls.phone"></app-control-messages>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="vendorSubject">Subject</label>
+                                        <input type="text" class="form-control" id="visitorSubject" 
+                                        placeholder="Subject of inquiry"
+                                        formControlName="subject">
                                     </div>
                                     <div class="form-group">
                                         <label for="visitorMessage">Message</label>

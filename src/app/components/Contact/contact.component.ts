@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {EmailService} from '../../Services/email.service';
 import {ValidationService} from '../../Services/validation.service';
+import {PhonePipe} from '../../Pipes/phone-pipe.pipe';
 import * as compose from 'lodash/fp/compose';
 import * as $ from 'jquery';
 
@@ -11,6 +12,7 @@ import * as $ from 'jquery';
   styleUrls: ['./contact.component.scss']
 })
 export class ContactComponent {
+  public phonePipe = new PhonePipe();
   form = 'visitor'; // visitor, or vendor
   visitorForm: FormGroup;
   vendorForm: FormGroup;
@@ -44,6 +46,7 @@ export class ContactComponent {
       lastName: ['', Validators.required ],
       email: ['', [Validators.required, ValidationService.emailValidator]],
       phone: ['', [Validators.required, ValidationService.phoneNumberValidator ]],
+      subject: ['', Validators.required ],
       message: '',
     },
     );
@@ -54,7 +57,8 @@ export class ContactComponent {
       lastName: ['User', Validators.required ],
       email: ['testEmail@email.com', [Validators.required, ValidationService.emailValidator]],
       phone: ['8004354455', [Validators.required, ValidationService.phoneNumberValidator ]],
-      message: 'Test message',
+      subject: ['Test Subject', Validators.required ],
+      message: 'Test message'
     },
     );
   }
@@ -75,7 +79,7 @@ export class ContactComponent {
     this.contactForm = this.fb.group({
       address: ['933 SW 3rd Ave, Portland, OR', Validators.required ],
       phone: ['(844)633-0075', Validators.required ],
-      email: ['​info@unchartedrealities.com', Validators.required ],
+      email: ['​info@unchartedrealities.com', Validators.required ]
     });
   }
   getForm(type: string): FormGroup {
@@ -102,24 +106,29 @@ export class ContactComponent {
   }
   getEmailObj(type: string): any {
     let emailObj: any = null;
+    const phoneFormatter = new PhonePipe();
     switch (type) {
       case 'vendor':
         emailObj = Object.assign({html: ''}, this.vendorForm.value);
+        emailObj.from = `${emailObj.email.trim()}`;
+        emailObj.name = `${emailObj.firstName.trim() + ' ' + emailObj.lastName.trim()}`;
+        emailObj.subject = `${emailObj.subject.trim()}`;
         emailObj.html = `\n
-              From: ${emailObj.firstName.trim() + ' ' + emailObj.lastName.trim()} \n
-                Phone: ${emailObj.phone.trim()} \n
-                Message: ${emailObj.message.trim()} \n
-                Company: ${emailObj.companyName.trim()} \n
-                Company Address: ${emailObj.companyAddress.trim()} \n
-                Product Type: ${emailObj.productType.trim()} \n
-                Message: ${emailObj.message.trim()}`;
+          <p><strong> From: </strong>: ${emailObj.firstName.trim() + ' ' + emailObj.lastName.trim()} </p>
+          <p><strong> Phone: </strong> ${phoneFormatter.transform(emailObj.phone.trim())} </p>
+          <p><strong> Company: </strong> ${emailObj.companyName.trim()} </p>
+          <p><strong> Company Address: </strong> ${emailObj.companyAddress.trim()} </p>
+          <p><strong> Product Type: </strong> ${emailObj.productType.trim()} </p>
+          <p><strong> Message</strong> ${emailObj.message.trim()} </p>`;
         break;
       case 'visitor':
         emailObj = Object.assign({html: '', subject: 'Visitor Inquiry'}, this.visitorForm.value);
-        emailObj.html = `\n
-                From: ${emailObj.firstName.trim() + ' ' + emailObj.lastName.trim()} \n
-                Phone: ${emailObj.phone.trim()} \n
-                Message: ${emailObj.message.trim()}`;
+        emailObj.from = `${emailObj.email.trim()}`;
+        emailObj.name = `${emailObj.firstName.trim() + ' ' + emailObj.lastName.trim()}`;
+        emailObj.html = `
+          <p><strong> From: </strong> ${emailObj.firstName.trim() + ' ' + emailObj.lastName.trim()} </p>
+          <p><strong> Phone: </strong> ${phoneFormatter.transform(emailObj.phone.trim())} </p>
+          <p><strong> Message: </strong> ${emailObj.message.trim()} </p>`;
         break;
       default:
         break;
@@ -129,7 +138,6 @@ export class ContactComponent {
   sendEmail(): void {
     const type = this.form;
     const emailObj: any = this.getEmailObj(type);
-    alert('Email service is coming soon! Please feel free to give us a call at (844)633-0075');
-    // this.emailService.sendEmail(emailObj);
+    this.emailService.sendEmail(emailObj);
   }
 }
