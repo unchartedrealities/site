@@ -4,7 +4,11 @@
         padding-top: 5vh;
     }
     blockquote{
-        margin-bottom: 30vh;
+       // margin-bottom: 30vh;
+    }
+    .cardBody{
+        padding-left: 4em;
+        padding-right: 4em;
     }
 }
 @include media-breakpoint-up(md){
@@ -16,9 +20,9 @@
     .glass{
         padding-top: 15vh;
     }
-    blockquote{
+    /*blockquote{
         margin-bottom: 10vh;
-    }
+    }*/
 }
 .page-background {
     background: url('assets/Images/backgrounds/futurescape/futurescape_black.jpg');

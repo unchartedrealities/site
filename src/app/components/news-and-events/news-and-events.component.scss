@@ -6,8 +6,13 @@
    .documentCard{
        margin-bottom: 35vh;
    }
+   /*
    .card:last-child{
         margin-bottom: 35vh;
+    }*/
+    .glass{
+        width: 110vw;
+        min-height: 100vh;
     }
 }
 @include media-breakpoint-only(sm){
@@ -86,4 +91,7 @@
 }
 .readMore .title{
     color: white;
+}
+.alignCenter {
+    justify-content: center;
 }

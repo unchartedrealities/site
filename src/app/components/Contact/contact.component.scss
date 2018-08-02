@@ -16,12 +16,12 @@
 @include media-breakpoint-up(md) {
     .glass{
         padding-top: 15vh;
-        height: 100vh;
+      //  height: 100vh;
     }
     .container{
-        height: inherit;
-        overflow-y: auto;
-        padding-bottom: 10vh;
+       /// height: inherit;
+       // overflow-y: auto;
+      //  padding-bottom: 10vh;
     }
     .card-title{
         font-size: 5.4rem;

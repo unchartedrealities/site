@@ -1,6 +1,6 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Location } from '@angular/common';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import * as $ from 'jquery';
 
 @Component({
@@ -29,8 +29,7 @@ export class AppComponent implements OnInit {
     contact: 'white',
     shop: 'white'
   };
-  constructor(private _route: ActivatedRoute, private router: Router, private location: Location) {
-  }
+  constructor(private _route: ActivatedRoute, private router: Router, private location: Location) {}
   ngOnInit() {
       /*
       + Get corresponding sideNav element base on initial path
@@ -39,6 +38,35 @@ export class AppComponent implements OnInit {
     // path example: /home
     const path = this.getPath(this.location);
     this.setNavBtnStyle(path.substring(1));
+    const navHeight = $('.logoContainer').height();
+    this.setPageBackgroundHeight(this.router, navHeight);
+    this.setPageContainerHeight(navHeight);
+  }
+  setPageBackgroundHeight(router, navHeight) {
+    router.events.subscribe((val) => {
+      // see also
+      if (val instanceof NavigationEnd) {
+        const contentHeight2 =  document.getElementsByClassName('heightDeterminant')[0]['offsetHeight'];
+        const contentHeight = $('.heightDeterminant').height();
+      //  const navHeight = $('.logoContainer').height();
+        const pageBackgroundHeight =  $('.page-background').height();
+        console.log('Page Background Height', pageBackgroundHeight);
+        console.log('Content Height', contentHeight);
+        console.log('Offset height', contentHeight2);
+        if (pageBackgroundHeight < contentHeight2) {
+          console.log('NavHeight', navHeight);
+          const calcHeight = contentHeight + navHeight;
+          console.log('Calc Height', calcHeight);
+          $('.page-background').css('height', calcHeight + 100);
+        }
+      }
+      console.log(val instanceof NavigationEnd);
+    });
+  }
+  setPageContainerHeight(navHeight) {
+    const pageContainer = $('.page-container');
+    console.log('Nav Height', navHeight);
+    pageContainer.css('top', navHeight);
   }
   // getPath:: null -> string
   getPath(location: Location): string {

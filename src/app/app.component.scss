@@ -1,5 +1,8 @@
 @import "~bootstrap/scss/bootstrap.scss";
 @include media-breakpoint-only(xs) {
+    .glass{
+        min-height: 100vh;
+    }
     .socialMediaBtns{
         display: flex;
         justify-content: center;
@@ -7,16 +10,56 @@
     .menuBtn i{
         font-size: 3.8rem;
     }
+    .logoContainer{
+        position: fixed;
+        top: 0px;
+        min-height: 10vh;
+        width: 120vw;
+        padding-right: 11vw;
+        z-index: 100;
+        align-items: center;
+        padding-top: 5px;
+        background: black;
+       
+    }
 }
 @include media-breakpoint-only(sm) {
     
     .menuBtn i{
         font-size: 2.8rem;
     }
+    .logoContainer{
+        position: fixed;
+        top: 0px;
+        min-height: 10vh;
+        width: 100vw;
+        z-index: 100;
+        align-items: center;
+        padding-top: 5px;
+        background: black;
+       
+    }
 }
 @include media-breakpoint-up(md){
     .menuBtn i{
         font-size: 3.2rem;
+    }
+    .page-container { 
+        height: 100vh;
+        position: relative;
+        display: flex;
+        align-content: center;
+    }
+    .logoContainer{
+        position: fixed;
+        top: 0px;
+        min-height: 10vh;
+        width: 100vw;
+        z-index: 100;
+        align-items: center;
+        padding-top: 5px;
+        background: black;
+       
     }
 }
 .appContainer{
@@ -27,17 +70,7 @@
 .appContainer>.content{
     height: 88vh;
 }
-.logoContainer{
-    position: fixed;
-    top: 0px;
-    min-height: 10vh;
-    width: 100vw;
-    z-index: 100;
-    align-items: center;
-    padding-top: 5px;
-    background: black;
-   
-}
+
 .logoContainer b{
     color: white;
 }

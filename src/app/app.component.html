@@ -1,4 +1,4 @@
-<div class="appContainer container-fluid">
+<div class="appContainer" style="overflow-x: hidden;">
     <div class="row logoContainer">
         <div class="col">
             <div class="dropdown">
@@ -96,5 +96,7 @@
             </div>
         </div>
     </div>
-    <router-outlet></router-outlet>
+    <div class="row page-container">
+        <router-outlet></router-outlet>
+    </div>
 </div>
