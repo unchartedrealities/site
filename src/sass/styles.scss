@@ -20,6 +20,10 @@
     .card-text{
         font-size: 1.4rem;
     }
+    .page-container{
+        overflow-y: scroll;
+        max-height: 88vh;
+    }
 }
 // Small devices (landscape phones, 576px and up)
 @include media-breakpoint-only(sm) { 
@@ -57,6 +61,12 @@
 /* Handle on hover */ 
 ::-webkit-scrollbar-thumb:hover {
     background: #555; 
+}
+nav img {
+    position: absolute;
+    left: 50%;
+    margin-left: -50px !important;
+    display: block;
 }
     .page-container{
         display: flex;

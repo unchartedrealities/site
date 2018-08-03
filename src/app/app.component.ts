@@ -70,7 +70,7 @@ export class AppComponent implements OnInit {
         $(elem).css('border-left', `2px solid ${this.colorSchemes[path]}`);
       } else {
         $(elem).removeClass('active');
-        $(elem).css('border-left', `2px solid #6b6e70`);
+        $(elem).css('border-left', `none`);
       }
     }
   }

@@ -10,6 +10,9 @@
         padding-left: 4em;
         padding-right: 4em;
     }
+    .container-row {
+        padding-top: 2em;
+    }
 }
 @include media-breakpoint-up(md){
     .page-background{

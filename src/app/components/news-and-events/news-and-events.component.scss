@@ -1,16 +1,22 @@
 @import "~bootstrap/scss/bootstrap.scss";
 @include media-breakpoint-only(xs){
-    .spacing{
+    .spacing {
         height: 10vh;
     }
-   .documentCard{
+   .documentCard {
        margin-bottom: 35vh;
+   }
+   ul.nav {
+    max-width: 100vw;
+   }
+   .scroll-container {
+    padding-top: 2em;
    }
    /*
    .card:last-child{
         margin-bottom: 35vh;
     }*/
-    .glass{
+    .glass {
         width: 110vw;
         min-height: 100vh;
     }
