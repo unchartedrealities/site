@@ -10,15 +10,15 @@
         margin-bottom: 10vh;
     }
     .nav-btn{
-        height: 80vh;
+        height: 88vh;
         position: fixed;
         z-index: 1000;
     }
-    
-    .nav-btn-left button{
+    .nav-btn-left{
+        left: .1vw;
     }
     .nav-btn-right{
-        left: 90vw;
+        left: 92.2vw;
     }
    
 }
@@ -37,6 +37,9 @@
     }
  }
  @include media-breakpoint-up(md) {
+    .nav-btn-left{
+        padding-left: 2.5em;
+    }
     .nav-btn-right{
         justify-content: flex-end;
     }
