@@ -1,8 +1,6 @@
 @import "~bootstrap/scss/bootstrap.scss";
 @include media-breakpoint-only(xs) {
-    .glass{
-        min-height: 100vh;
-    }
+   
     .socialMediaBtns{
         display: flex;
         justify-content: center;

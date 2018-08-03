@@ -29,6 +29,14 @@ export class AppComponent implements OnInit {
     contact: 'white',
     shop: 'white'
   };
+  backgrounds: any = {
+    home: `url('assets/Images/backgrounds/futurescape/futurescape_light.jpg')`,
+    worlds: `url('assets/Images/backgrounds/adventure_and_wonderment/adventure_3.jpg')`,
+    vendors: `url('assets/Images/backgrounds/futurescape/futurescape_black.jpg')`,
+    newsAndEvents: `url('assets/Images/backgrounds//virtual_reality/vr_woman.jpg')`,
+    contact: `url('assets/Images/backgrounds/adventure_and_wonderment/adventure_1.jpg')`,
+    about: `url('assets/Images/backgrounds/futurescape/futurescape_medium.jpg')`,
+  };
   constructor(private _route: ActivatedRoute, private router: Router, private location: Location) {}
   ngOnInit() {
       /*
@@ -37,61 +45,23 @@ export class AppComponent implements OnInit {
     */
     // path example: /home
     const path = this.getPath(this.location);
-    this.setNavBtnStyle(path.substring(1));
     const navHeight = $('.logoContainer').height();
-    this.setPageBackgroundHeight(this.router, navHeight);
-    this.setPageContainerHeight(navHeight);
-  }
-  setPageBackgroundHeight(router, navHeight) {
-    router.events.subscribe((val) => {
-      // see also
+    this.router.events.subscribe((val) => {
       if (val instanceof NavigationEnd) {
-        const contentHeight2 =  document.getElementsByClassName('heightDeterminant')[0]['offsetHeight'];
-        const contentHeight = $('.heightDeterminant').height();
-      //  const navHeight = $('.logoContainer').height();
-        const pageBackgroundHeight =  $('.page-background').height();
-        console.log('Page Background Height', pageBackgroundHeight);
-        console.log('Content Height', contentHeight);
-        console.log('Offset height', contentHeight2);
-        if (pageBackgroundHeight < contentHeight2) {
-          console.log('NavHeight', navHeight);
-          const calcHeight = contentHeight + navHeight;
-          console.log('Calc Height', calcHeight);
-          $('.page-background').css('height', calcHeight + 100);
-        }
+        const currPath = this.getPath(this.location).substring(1);
+        this.setPageBackground(currPath);
+        this.setNavHighlight(currPath);
       }
-      console.log(val instanceof NavigationEnd);
     });
   }
-  setPageContainerHeight(navHeight) {
-    const pageContainer = $('.page-container');
-    console.log('Nav Height', navHeight);
-    pageContainer.css('top', navHeight);
+  setPageBackground(path) {
+    const background = this.backgrounds[path];
+    $('body').css('background', background);
+    $('body').css('background-repeat',  'no-repeat');
+    $('body').css('background-size',  '100% 100%');
+    $('body').css('background-attachment',  'fixed');
   }
-  // getPath:: null -> string
-  getPath(location: Location): string {
-   return this.location.path();
-  }
-  // setNavBtnStyle :: string -> null
-  setNavBtnStyle(path): void {
-    /*
-      + Take sideNav element base on initial path as argument
-      + Set proper sideNav element to active and display white left-border
-    */
-    const elem = $(`#${path}`);
-     elem.addClass('active');
-     elem.css('border-left', `2px solid white`);
-  }
-  // handleNavBtnClick:: Event -> void
-  handleNavBtnClick(event): void {
-    /*
-      + Get the clicked sideNav element and extract id attribute to get new path
-      + Loop through all sideNav elements
-      + For all sideNav elements whose id != path, remove 'active' class and set to default style
-      + For sideNav element whose id === path, add 'active' class and set 'active' style
-    */
-    const target = event.target;
-    const path = target.attributes.id.nodeValue;
+  setNavHighlight(path) {
     const elements = $('.appContainer a.nav-link');
     for (const elem of elements) {
       const currId = $(elem).attr('id');
@@ -103,6 +73,10 @@ export class AppComponent implements OnInit {
         $(elem).css('border-left', `2px solid #6b6e70`);
       }
     }
+  }
+  // getPath:: null -> string
+  getPath(location: Location): string {
+   return this.location.path();
   }
   // handleSocialMediaBtnClick:: Event -> void
   handleSocialMediaBtnClick(btn: string): void {

@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {EmailService} from '../../Services/email.service';
 import {ValidationService} from '../../Services/validation.service';
@@ -11,7 +11,7 @@ import * as $ from 'jquery';
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss']
 })
-export class ContactComponent implements AfterViewInit {
+export class ContactComponent {
   public phonePipe = new PhonePipe();
   form = 'visitor'; // visitor, or vendor
   visitorForm: FormGroup;
@@ -50,10 +50,6 @@ export class ContactComponent implements AfterViewInit {
       message: '',
     },
     );
-  }
-  ngAfterViewInit() {
-    const cardHeight = $('.card').height();
-     $('.page-background').height(cardHeight);
   }
   testCreateVisitorForm(): void {
     this.visitorForm = this.fb.group({
