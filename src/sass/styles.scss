@@ -20,19 +20,12 @@
     .card-text {
         font-size: 1.4rem;
     }
-    .page-container {
-        overflow-y: scroll;
-        max-height: 88vh;
-    }
 }
 // Small devices (landscape phones, 576px and up)
 @include media-breakpoint-only(sm) { 
     ::-webkit-scrollbar {
         width: 0px;  /* remove scrollbar space */
         background: transparent;  /* optional: just make scrollbar invisible */
-    }
-    body {
-        padding-top: 15vh;
     }
     .title-emphasis {
         font-size: 5.4rem;
@@ -42,35 +35,40 @@
     }
     .experience-list {
         font-size: 1.4rem;
+    }.page-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
     }
  }
 @include media-breakpoint-up(md) {
-    /*width*/
-::-webkit-scrollbar {
-    width: 5px;
-}
-/* Track  */
-::-webkit-scrollbar-track {
-    background: #f1f1f1; 
-}
+        /*width*/
+    ::-webkit-scrollbar {
+        width: 5px;
+    }
+    /* Track  */
+    ::-webkit-scrollbar-track {
+        background: #f1f1f1; 
+    }
 
-/* Handle*/ 
-::-webkit-scrollbar-thumb {
-    background: #888; 
-}
-/* Handle on hover */ 
-::-webkit-scrollbar-thumb:hover {
-    background: #555; 
-}
-.margin-20-desktop {
-    margin-top: 20vh;
-}
-nav img {
-    position: absolute;
-    left: 50%;
-    margin-left: -50px !important;
-    display: block;
-}
+    /* Handle*/ 
+    ::-webkit-scrollbar-thumb {
+        background: #888; 
+    }
+    /* Handle on hover */ 
+    ::-webkit-scrollbar-thumb:hover {
+        background: #555; 
+    }
+    .margin-20-desktop {
+        margin-top: 20vh;
+    }
+    nav img {
+        position: absolute;
+        left: 50%;
+        margin-left: -50px !important;
+        display: block;
+    }
     .page-container {
         display: flex;
         justify-content: center;
@@ -124,12 +122,6 @@ nav img {
 /** Standardize Font-Sizes **/
 html {
     font-size: 62.5%;
-}
-
-.page-container-flex {
-    height: 88vh;
-    display: flex;
-    align-items: center;
 }
 .page-background {
     top: 0;
