@@ -1,45 +1,20 @@
 @import "~bootstrap/scss/bootstrap.scss";
 @include media-breakpoint-only(xs) {
-   
-    .socialMediaBtns{
+    .socialMediaBtns {
         display: flex;
         justify-content: center;
     }
-    .menuBtn i{
+    .menuBtn i {
         font-size: 3.8rem;
-    }
-    .logoContainer{
-        position: fixed;
-        top: 0px;
-        min-height: 10vh;
-        width: 120vw;
-        padding-right: 11vw;
-        z-index: 100;
-        align-items: center;
-        padding-top: 5px;
-        background: black;
-       
     }
 }
 @include media-breakpoint-only(sm) {
-    
-    .menuBtn i{
+    .menuBtn i {
         font-size: 2.8rem;
     }
-    .logoContainer{
-        position: fixed;
-        top: 0px;
-        min-height: 10vh;
-        width: 100vw;
-        z-index: 100;
-        align-items: center;
-        padding-top: 5px;
-        background: black;
-       
-    }
 }
-@include media-breakpoint-up(md){
-    .menuBtn i{
+@include media-breakpoint-up(md) {
+    .menuBtn i {
         font-size: 3.2rem;
     }
     .page-container { 
@@ -48,7 +23,7 @@
         display: flex;
         align-content: center;
     }
-    .logoContainer{
+    .logoContainer {
         position: fixed;
         top: 0px;
         min-height: 10vh;
@@ -60,51 +35,30 @@
        
     }
 }
-.appContainer{
-    /*background: #222629;*/
+
+.appContainer {
     background-size: cover;
     background-repeat: no-repeat; 
 }
-.appContainer>.content{
+.appContainer>.content {
     height: 88vh;
 }
-
-.logoContainer b{
+.navbar {
+    background: black;
+}
+.logoContainer b {
     color: white;
 }
-.logo{
+.logo {
     margin-top: 5px;
     height: 7vh;
 }
-.nav-menu-toggle-btn{
+.nav-menu-toggle-btn {
     font-size: 1.5em;
     color: white;
 }
-.phoneNum{
+.phoneNum {
     font-family: 'Sanchez', serif;
     font-size: 1.5em;
     color: white;
-}
-.sideNav>a.active{
-   /* border-left: 2px solid #86c232;*/
-    font-family: 'Sanchez', serif;
-    font-size: 1.5em;
-}
-.sideNav>a{
-    border-left:2px solid #6b6e70;
-    height: 15vh;
-    display: flex;
-    align-items: center;
-    font-family: 'Sanchez', serif; 
-    color: white;
-}
-.sideNav>a:hover{
-    color: #61892f;
-}
-.sideNav>a.hidden>b{
-    visibility: hidden;
-}
-.sideNav>a.hidden{
-    height: 5vh;
-    cursor: default; 
 }
