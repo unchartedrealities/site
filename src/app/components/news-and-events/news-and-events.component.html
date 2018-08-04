@@ -40,7 +40,7 @@
                                     <img class="card-img-top" [src]="document.imgSrc" alt="Card image cap">
                                     <div class="card-body">
                                         <h2 class="card-title" style="font-family: NeoSans-med">{{document.title}}</h2>
-                                        <h4 class="authorDate NeoSansLight" style="font-weight: normal">{{document.author+" / "+document.date}}</h4>
+                                        <h4 *ngIf="document.author && document.title" class="authorDate NeoSansLight" style="font-weight: normal">{{document.author+" / "+document.date}}</h4>
                                         <p class="card-text text-truncate NeoSansLight" [innerHtml]="document.body">
                                         </p>
                                         <button 
@@ -72,7 +72,7 @@
                                 <div class="card-body">
                                     <h2 class="card-title" style="font-family: NeoSans-med">{{document.title}}</h2>
                                     <h4 class="authorDate NeoSansLight" style="font-weight: normal">{{document.date}}</h4>
-                                    <h4 class="authorDate NeoSansLight" style="font-weight: normal">{{document.startTime+"-"+document.endTime}}</h4>
+                                    <h4 *ngIf="document.startTime && document.endTime" class="authorDate NeoSansLight" style="font-weight: normal">{{document.startTime+"-"+document.endTime}}</h4>
                                     <h4 class="authorDate NeoSansLight" style="font-weight: normal">{{document.location}}</h4>
                                     <p class="card-text text-truncate NeoSansLight" [innerHtml]="document.body">
                                     </p>
@@ -105,7 +105,7 @@
                                             <div class="row">
                                                 <div class="col-sm-10">
                                                     <h2 class="card-title" style="font-family: NeoSans-med">{{activeDocument.title}}</h2>
-                                                    <h4 class="authorDate NeoSansLight">{{activeDocument.author+" / "+activeDocument.date}}</h4>
+                                                    <h4 *ngIf="activeDocument.author && activeDocument.date" class="authorDate NeoSansLight">{{activeDocument.author+" / "+activeDocument.date}}</h4>
                                                 </div>
                                                 <div class="col-sm-2">
                                                     <button 
@@ -139,8 +139,8 @@
                                         <div class="row">
                                             <div class="col-sm-10">
                                                 <h2 class="card-title" style="font-family: NeoSans-med">{{activeDocument.title}}</h2>
-                                                <h4 class="authorDate NeoSansLight">{{+activeDocument.date}}</h4>
-                                                <h4 class="authorDate NeoSansLight">{{activeDocument.startTime+"-"+activeDocument.endTime}}</h4>
+                                                <h4 *ngIf="activeDocument.author && activeDocument.date" class="authorDate NeoSansLight">{{activeDocument.author+" / "+activeDocument.date}}</h4>
+                                                <h4 *ngIf="activeDocument.startTime && activeDocument.endTime" class="authorDate NeoSansLight">{{activeDocument.startTime+"-"+activeDocument.endTime}}</h4>
                                                 <h4 class="authorDate NeoSansLight">{{activeDocument.location}}</h4>
                                             </div>
                                             <div class="col-sm-2">
