@@ -2,45 +2,38 @@
 @import "~bootstrap/scss/bootstrap.scss";
 
 @include media-breakpoint-down(sm) {
-    .experience-list p{
+    .experience-list p {
         padding-left: 1.25rem;
         padding-right: 1.25rem;
     }
-    /*.experience-list p:last-child{
+    /*.experience-list p:last-child {
          margin-bottom: 20vh;
      }*/
-     .card-title{
+     .card-title {
          text-align: center;
      }
-     .card-text{
+     .card-text {
         text-align: justify;
      }
-     .experience-list p{
+     .experience-list p {
         text-align: justify;
      }
-     .btnRow{
+     .btnRow {
          justify-content: center;
      }
  }
 @include media-breakpoint-up(md) {
-   .container-row{
+   .container-row {
         display: flex;
         justify-content: center;
         align-items: center;
     }
-    .content-container{
+    .content-container {
         top: 13.5em;
         position: relative;
     }
 }
-/*
-.page-background {
-    background: url('assets/Images/backgrounds/futurescape/futurescape_light.jpg');
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    background-attachment: fixed;
-}*/
-.card-neon-border{
+.card-neon-border {
     border: 2px solid #86C232;
 }
 /*Invisible Card Style*/
@@ -54,10 +47,10 @@
     font-weight: lighter;
 }
 
-.card-text>.container{
+.card-text>.container {
     padding-left: 0px;
 }
-.card-link{
+.card-link {
     margin-top: 5vh;
     font-size: 2rem;
     color: #86C232;
@@ -66,19 +59,19 @@
 .card-link:hover {
     color: #61892f;
 }
-.card-link-container{
+.card-link-container {
     display: flex;
     justify-content: center;
 }
-blockquote{
+blockquote {
     font-weight: lighter;
     font-family: NeoSans-light;
     font-style: oblique;
 }
-.neon-bold-green{
+.neon-bold-green {
     color: #86C232
 }
-.experience-list p{
+.experience-list p {
     color: black;
     font-family: NeoSans-light;
 }

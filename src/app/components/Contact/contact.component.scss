@@ -1,55 +1,55 @@
 @import "~bootstrap/scss/bootstrap.scss";
 @include media-breakpoint-only(xs) {
-    .contact-info{
+    .contact-info {
         margin-top: 5vh;
     }
-    .card-title{
+    .card-title {
         font-size: 5.4rem;
     }
-    label{
+    label {
         font-size: 1.4rem;
     }
-    .col-form-label{
+    .col-form-label {
         font-size: 1.4rem;
     }
 }
 @include media-breakpoint-up(md) {
-    .card-title{
+    .card-title {
         font-size: 5.4rem;
     }
-    h2{
+    h2 {
         font-size: 3.4rem;
     }
-    label{
+    label {
         font-size: 1.6rem;
     }
-    .col-form-label{
+    .col-form-label {
         font-size: 1.6rem;
     }
-    .contactForm input{
+    .contactForm input {
         font-size: 1.2rem;
     }
 }
-.card{
+.card {
     background: transparent;
     border: none;
 }
-.card-title{
+.card-title {
     color:black;
     font-weight: bold;
 }
-.nav-link{
+.nav-link {
     cursor: pointer;
 }
-.underline{
+.underline {
     border-bottom: 1px solid white;
 }
-.contact-info input{
+.contact-info input {
     color: white;
 }
-#contactForm label{
+#contactForm label {
     font-family: NeoSans-med;
 }   
-#contactForm input{
+#contactForm input {
     font-family: NeoSans-light;
 }   

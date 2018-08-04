@@ -14,13 +14,13 @@
     .title-emphasis {
         font-size: 5.4rem;
     }
-    .experience-list{
+    .experience-list {
         font-size: 1.4rem;
     }
-    .card-text{
+    .card-text {
         font-size: 1.4rem;
     }
-    .page-container{
+    .page-container {
         overflow-y: scroll;
         max-height: 88vh;
     }
@@ -31,16 +31,16 @@
         width: 0px;  /* remove scrollbar space */
         background: transparent;  /* optional: just make scrollbar invisible */
     }
-    body{
+    body {
         padding-top: 15vh;
     }
     .title-emphasis {
         font-size: 5.4rem;
     }
-    .card-text{
+    .card-text {
         font-size: 1.4rem;
     }
-    .experience-list{
+    .experience-list {
         font-size: 1.4rem;
     }
  }
@@ -62,13 +62,16 @@
 ::-webkit-scrollbar-thumb:hover {
     background: #555; 
 }
+.margin-20-desktop {
+    margin-top: 20vh;
+}
 nav img {
     position: absolute;
     left: 50%;
     margin-left: -50px !important;
     display: block;
 }
-    .page-container{
+    .page-container {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -77,13 +80,13 @@ nav img {
     .title-emphasis {
         font-size: 8.4rem;
     }
-    .card-title{
+    .card-title {
         font-size: 4.4rem;
     }
-    .card-text{
+    .card-text {
         font-size: 1.6rem;
     }
-    .experience-list{
+    .experience-list {
         font-size: 1.3rem;
     }
 }
@@ -103,17 +106,17 @@ nav img {
     font-family: NeoSans-italic;
     src: url("../assets/Fonts/NeoSans/NeoSans_Medium_Italic.otf") format("opentype");
 }
-.NeoSans{
+.NeoSans {
     font-family: NeoSans;
 }
-.NeoSansLight{
+.NeoSansLight {
     font-family: NeoSans-light;
     font-style: oblique;
 }
-.NeoSansMed{
+.NeoSansMed {
     font-family:  NeoSans-med;
 }
-.NeoSansItalic{
+.NeoSansItalic {
     font-family:  NeoSans-italic;
 }
 /* You can add global styles to this file, and also import other style files */
@@ -123,12 +126,12 @@ html {
     font-size: 62.5%;
 }
 
-.page-container-flex{
+.page-container-flex {
     height: 88vh;
     display: flex;
     align-items: center;
 }
-.page-background{
+.page-background {
     top: 0;
     left: 0;
     height: 100vh;
@@ -136,9 +139,12 @@ html {
     width: 100vw;
     z-index: -1;
 }
-.page-background>img{
+.page-background>img {
     height: 100%;
     width: 100%;
+}
+.card {
+    max-width: 100vw;
 }
 .card-invisible {
     border: none;
@@ -148,7 +154,7 @@ html {
     color: white;
     font-weight: bold;
 }
-.card-text{
+.card-text {
     color: black;
     font-weight: bold;
 }
@@ -156,13 +162,13 @@ html {
     font-family: NeoSans;
 }
 
-.content-area{
+.content-area {
     font-family: NeoSans;
 }
-.page-background-greyscale{
+.page-background-greyscale {
     filter: grayscale(30%);
 }
-.btn-invisible{
+.btn-invisible {
     background: transparent;
     border: none;
 }

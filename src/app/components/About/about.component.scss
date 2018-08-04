@@ -1,34 +1,34 @@
 @import "~bootstrap/scss/bootstrap.scss";
-@include media-breakpoint-only(xs){
-    .glass{
+@include media-breakpoint-only(xs) {
+    .glass {
         padding-top: 5vh;
     }
-    .card:last-child{
+    .card:last-child {
         margin-bottom: 30vh;
     }
 }
-@include media-breakpoint-only(sm){
-    .glass{
+@include media-breakpoint-only(sm) {
+    .glass {
         padding-top: 5vh;
     }
-    .card:last-child{
+    .card:last-child {
         margin-bottom: 10vh;
     }
 }
-@include media-breakpoint-up(md){
-    .page-background{
+@include media-breakpoint-up(md) {
+    .page-background {
         display: flex;
         align-items: center;
         justify-content: center;
     }
-    .glass{
+    .glass {
         padding-top: 10vh;
     }
     .scroll-container::-webkit-scrollbar {
         width: 0px;  /* remove scrollbar space */
         background: transparent;  /* optional: just make scrollbar invisible */
     }
-    .scroll-container{
+    .scroll-container {
         height: inherit;
         overflow-y: scroll
     }
@@ -39,24 +39,24 @@
     background-size: 100% 100%;
     background-attachment: fixed;
 }
-.card-title{
+.card-title {
     color: white;
 }
 
-.team-photo{
+.team-photo {
     height: 25vh;
 }
-.member-name{
+.member-name {
     margin-top: 2vh;
 }
-.name{
+.name {
     font-size: 2.4rem;
     color: white;
 }
-.bio{
+.bio {
     font-weight: lighter;
 }
-.profilePic{
+.profilePic {
     border-radius: 100%;
     height: 140px;
     width:  140px;
@@ -64,13 +64,13 @@
     box-shadow: 0 5px 8px rgba(89,89,89,.4);
     /*box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);*/
 }
-.card-invisible{
+.card-invisible {
     background: transparent;
     border: none;
 }
-.card-profile{
+.card-profile {
     align-items: center;
 }
-.card-text{
+.card-text {
     color: black;
 }

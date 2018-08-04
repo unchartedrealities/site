@@ -1,103 +1,91 @@
 @import "~bootstrap/scss/bootstrap.scss";
-@include media-breakpoint-only(xs){
-    .spacing {
+@include media-breakpoint-only(xs) {
+   /* .spacing  {
         height: 10vh;
-    }
+    }*/
    .documentCard {
        margin-bottom: 35vh;
    }
    ul.nav {
     max-width: 100vw;
    }
-   .scroll-container {
+   .scroll-container  {
     padding-top: 2em;
    }
-   /*
-   .card:last-child{
-        margin-bottom: 35vh;
-    }*/
     .glass {
         width: 110vw;
         min-height: 100vh;
     }
 }
-@include media-breakpoint-only(sm){
-    img{
+@include media-breakpoint-only(sm) {
+    img {
         height: 60vh;
     }
-    .card:last-child{
+    .card:last-child {
         margin-bottom: 20vh;
     }
 }
-@include media-breakpoint-up(md){
-    .glass{
-        padding-top: 10vh;
-        height: 100vh;
-    }
-    .scroll-container::-webkit-scrollbar {
-        width: 0px;  /* remove scrollbar space */
-        background: transparent;  /* optional: just make scrollbar invisible */
-    }
-    .scroll-container{
-        height: inherit;
-        overflow-y: scroll
-    }
-  
-    .nav-link h2{
+@include media-breakpoint-up(md) {
+    .nav-link h2 {
         font-size: 3.4rem;
     }
-    .spacing{
+    .spacing {
         height: 10vh;
     }
-    img{
+    img {
         height: 60vh;
     }
-    .card:last-child{
+    .card:last-child {
         margin-bottom: 20vh;
     }
 }
-.page-background {
+.page-background  {
     background: url('assets/Images/backgrounds//virtual_reality/vr_woman.jpg');
     background-repeat: no-repeat;
     background-size: 100% 100%;
     background-attachment: fixed;
 }
-.nav-link{
+.nav-link {
     cursor: pointer;
 }
-.underline{
+.underline {
     border-bottom: 1px solid white;
 }
-
-.card-header{
+.getMore  {
+    margin-top: 5vh;
+}
+.card {
+    margin-top: 5vh;
+}
+.card-header {
     background: white;
     min-height: 15vh;
 }
-.card-header .card-title{
+.card-header .card-title {
     font-size: 2.4rem;
 }
-.card-header .authorDate{
+.card-header .authorDate {
     color: #2e2e2e;
     font-weight: lighter;
     font-size: 2.0rem;
 }
-.authorDate{
+.authorDate {
     color: #2e2e2e;
     font-weight: lighter;
 }
-.card-text{
+.card-text {
     font-weight: lighter;
 }
-.close{
+.close {
     font-size: 2.4rem;
     color: black;
 }
-.readMore{
+.readMore {
     margin-bottom: 10vh;
 }
-.readMore .title{
+.readMore .title {
     color: white;
 }
-.alignCenter {
+.alignCenter  {
     justify-content: center;
 }

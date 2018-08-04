@@ -1,12 +1,12 @@
 @import "~bootstrap/scss/bootstrap.scss";
-@include media-breakpoint-down(sm){
-    .glass{
+@include media-breakpoint-down(sm) {
+    .glass {
         padding-top: 5vh;
     }
-    blockquote{
+    blockquote {
        // margin-bottom: 30vh;
     }
-    .cardBody{
+    .cardBody {
         padding-left: 4em;
         padding-right: 4em;
     }
@@ -14,16 +14,16 @@
         padding-top: 2em;
     }
 }
-@include media-breakpoint-up(md){
-    .page-background{
+@include media-breakpoint-up(md) {
+    .page-background {
         display: flex;
         justify-content: center;
         align-items: center;
     }
-    .glass{
+    .glass {
         padding-top: 15vh;
     }
-    /*blockquote{
+    /*blockquote {
         margin-bottom: 10vh;
     }*/
 }
@@ -33,31 +33,31 @@
     background-size: 100% 100%;
     background-attachment: fixed;
 }
-.neon-bold-blue{
+.neon-bold-blue {
     color: rgb(28, 164, 168);
 }
-.card-title{
+.card-title {
     color: white;
 }
-.card-text>.container{
+.card-text>.container {
     padding-left: 0px;
 }
-.card-text{
+.card-text {
     color:black;
 }
-blockquote{
+blockquote {
     font-weight: bold;
     font-size: 1.6rem;
     color: black;
     text-align: justify;
 }
-.detail-list i{
+.detail-list i {
     font-size: 4rem;
     color: rgb(28, 164, 168);
 }
-.detail-list p{
+.detail-list p {
     font-size: 1.4rem;
 }
-.iconContainer{
+.iconContainer {
     text-align: center;
 }

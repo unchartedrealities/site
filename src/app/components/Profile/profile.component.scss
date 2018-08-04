@@ -1,38 +1,38 @@
 @import "~bootstrap/scss/bootstrap.scss";
 @include media-breakpoint-only(xs) {
-    .profile-image img{
+    .profile-image img {
         height: 35vh;
        width: inherit;
     }
-    #profile{
+    #profile {
         margin-bottom: 35vh;
     }
    
 }
 @include media-breakpoint-only(sm) {
-    .profile-image img{
+    .profile-image img {
         height: 55vh;
         width: inherit;
     }
-    #profile{
+    #profile {
         margin-bottom: 15vh;
     }
 }
 @include media-breakpoint-up(md) {
-    .profile-image img{
+    .profile-image img {
         height: 35vh;
         max-width: 70vw;
     }
 }
-.return-btn{
+.return-btn {
     background: transparent;
     float: right;
     color: black;
 }
-.return-btn:hover{
+.return-btn:hover {
     color: white;
 }
-.fa-circle{
+.fa-circle {
     margin-right: 15px;
     font-size: .5rem;
 }
