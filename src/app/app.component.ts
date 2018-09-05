@@ -31,7 +31,7 @@ export class AppComponent implements OnInit {
   };
   backgrounds: any = {
     home: `url('assets/Images/backgrounds/futurescape/futurescape_light.jpg')`,
-    worlds: `url('assets/Images/backgrounds/adventure_and_wonderment/white_future.jpg')`,
+    worlds: `url('assets/Images/backgrounds/futurescape/white_future.jpg')`,
     vendors: `url('assets/Images/backgrounds/futurescape/futurescape_black.jpg')`,
     newsAndEvents: `url('assets/Images/backgrounds/futurescape/laser_lights.jpg')`,
     contact: `url('assets/Images/backgrounds/adventure_and_wonderment/adventure_1.jpg')`,
