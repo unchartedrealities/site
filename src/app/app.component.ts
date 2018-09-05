@@ -34,7 +34,7 @@ export class AppComponent implements OnInit {
     worlds: `url('assets/Images/backgrounds/futurescape/white_future.jpg')`,
     vendors: `url('assets/Images/backgrounds/futurescape/futurescape_black.jpg')`,
     newsAndEvents: `url('assets/Images/backgrounds/futurescape/laser_lights.jpg')`,
-    contact: `url('assets/Images/backgrounds/adventure_and_wonderment/adventure_1.jpg')`,
+    contact: `url('assets/Images/backgrounds/futurescape/futurescape_black.jpg')`,
     about: `url('assets/Images/backgrounds/futurescape/futurescape_medium.jpg')`,
   };
   constructor(private _route: ActivatedRoute, private router: Router, private location: Location) {}
