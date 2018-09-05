@@ -60,7 +60,9 @@ const experience0: Profile = {
     
     For our repeat customers who expect to return on a regular basis (ex. fitness programs, large-scale saveable adventures), we have monthly subscriptions available.
     
-    We welcome tour groups, birthday parties, educational classes, along with corporations and professionals who would like a new and unique approach to everyday activities.`
+    We welcome tour groups, birthday parties, educational classes, along with corporations and professionals who would like a new and unique approach to everyday activities.  
+    
+    We can help with team-building and supporting corporate events.`
 };
 
 
