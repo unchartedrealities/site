@@ -18,7 +18,7 @@ export interface Document {
 
 const newsDefaultSrc = 'assets/Images/backgrounds/events/location.jpg';
 
-const eventsDefaultSrc = 'assets/Images/backgrounds/events/bigfairfunlogo.jpg';
+const eventsDefaultSrc = 'assets/Images/backgrounds/events/halloween.jpg';
 
 const defaultAuthor = 'Michael Pagnotta';
 
@@ -58,12 +58,10 @@ const event1: Document = {
 
     date: 'July 23, 2018',
 
-    title: 'Uncharted Realities will be at the Washington County Fair July 26-29',
+    title: 'Uncharted Realities is your best Halloween destination - Aug 26-31',
 
     body: `Bring all your friends and family for a great time!
-    Find us across from the Steak Fry dining area going toward the
-    Bugology area and try one of our exciting experiences.`
-
+    It is only through our technology that will find the horror and terror you seek!  Today's haunted houses are cheesy, but get your heart pumping with our Halloween offerings.`
 };
 
 export const documents: Document[] = [news1, event1];
